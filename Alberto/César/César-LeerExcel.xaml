@@ -88,9 +88,10 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="César_prueba" sap:VirtualizedContainerService.HintSize="794.8000000000001,1700.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="César_prueba" sap:VirtualizedContainerService.HintSize="794.8000000000001,1707.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:String))" Name="dicPacientes" />
     </Sequence.Variables>
@@ -99,7 +100,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="548.8,1677.6" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="548.8,1684" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
         <Sequence DisplayName="Secuencia Leer Excel" sap:VirtualizedContainerService.HintSize="547.2,1326.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
@@ -222,7 +223,7 @@
                   </ui:MultipleAssign>
                   <Assign DisplayName="Assign Diccionario Pacientes" sap:VirtualizedContainerService.HintSize="478.4,169.6" sap2010:WorkflowViewState.IdRef="Assign_3">
                     <Assign.To>
-                      <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dicPacientes(strCorreo)]</OutArgument>
+                      <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dicPacientes(strDNI)]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
                       <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[New Dictionary(Of String, String) From {{"DNI", strDNI}, {"Nombre", strNombre}, {"Sexo", strSexo}, {"Edad", strEdad}, {"Teléfono", strTelefono}, {"Correo", strCorreo}, {"Dirección", strDireccion}, {"Especialidad Médica", strEspecialidad}}]</InArgument>
