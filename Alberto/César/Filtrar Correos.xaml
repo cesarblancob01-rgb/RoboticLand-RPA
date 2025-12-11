@@ -101,13 +101,13 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Filtrar_Correos" sap:VirtualizedContainerService.HintSize="794.8000000000001,1993.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Filtrar_Correos" sap:VirtualizedContainerService.HintSize="794.8000000000001,2038.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="520,1970.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence sap:VirtualizedContainerService.HintSize="520,2015.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="scg:List(umm:Office365Message)" Name="mails" />
       </Sequence.Variables>
@@ -147,13 +147,13 @@
           </umamm:MailboxArgument>
         </umam:GetEmailListConnections.MailboxArg>
       </umam:GetEmailListConnections>
-      <ui:ForEach x:TypeArguments="umm:Office365Message" CurrentIndex="{x:Null}" DisplayName="For Each currentOffice365Message" sap:VirtualizedContainerService.HintSize="486.4,1603.2" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[mails]">
+      <ui:ForEach x:TypeArguments="umm:Office365Message" CurrentIndex="{x:Null}" DisplayName="For Each currentOffice365Message" sap:VirtualizedContainerService.HintSize="486.4,1648" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[mails]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="umm:Office365Message">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="umm:Office365Message" Name="currentOffice365Message" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="484.8,1481.6" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="484.8,1526.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="clasificar" />
               </Sequence.Variables>
@@ -162,7 +162,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign DisplayName="Assign clasificar" sap:VirtualizedContainerService.HintSize="451.2,174.4" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign DisplayName="Assign clasificar" sap:VirtualizedContainerService.HintSize="451.2,178.4" sap2010:WorkflowViewState.IdRef="Assign_1">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[clasificar]</OutArgument>
                 </Assign.To>
@@ -172,9 +172,9 @@
 		"SPAM"))]</InArgument>
                 </Assign.Value>
               </Assign>
-              <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[clasificar]" sap:VirtualizedContainerService.HintSize="451.2,1247.2" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+              <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[clasificar]" sap:VirtualizedContainerService.HintSize="451.2,1284" sap2010:WorkflowViewState.IdRef="Switch`1_2">
                 <Switch.Default>
-                  <Sequence DisplayName="Default" sap:VirtualizedContainerService.HintSize="449.6,339.2" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <Sequence DisplayName="Default" sap:VirtualizedContainerService.HintSize="449.6,343.2" sap2010:WorkflowViewState.IdRef="Sequence_18">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -206,13 +206,13 @@
                     </umam:MoveEmailConnections>
                   </Sequence>
                 </Switch.Default>
-                <Sequence x:Key="ALTA" DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,335.2" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                <Sequence x:Key="ALTA" DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,343.2" sap2010:WorkflowViewState.IdRef="Sequence_16">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <umam:MoveEmailConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID2}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID3}" ManualEntryFolder="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" BodyAsHtml="False" BrowserFolder="Bandeja de entrada/Altas" BrowserFolderId="AQMkADAwATM3ZmYBLWE3OGItOWNjADctMDACLTAwCgAuAAADG4uqdcAYfEKJZ0Hj7xwmlQEAvbXfGcFUjk6QxnNsqJuDpgAAAmgAAAE=" ConnectionId="73500a74-f50c-4406-94d2-bf9e30576610" DisplayName="Move Email" Email="[currentOffice365Message]" sap:VirtualizedContainerService.HintSize="416,275.2" sap2010:WorkflowViewState.IdRef="MoveEmailConnections_3" SelectionMode="Browse" UseConnectionService="True" UseSharedMailbox="False">
+                  <umam:MoveEmailConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID2}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID3}" ManualEntryFolder="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" BodyAsHtml="False" BrowserFolder="Bandeja de entrada/Altas" BrowserFolderId="AQMkADAwATM3ZmYBLWE3OGItOWNjADctMDACLTAwCgAuAAADG4uqdcAYfEKJZ0Hj7xwmlQEAvbXfGcFUjk6QxnNsqJuDpgAAAmgAAAE=" ConnectionId="73500a74-f50c-4406-94d2-bf9e30576610" DisplayName="Move Email" Email="[currentOffice365Message]" sap:VirtualizedContainerService.HintSize="416,279.2" sap2010:WorkflowViewState.IdRef="MoveEmailConnections_3" SelectionMode="Browse" UseConnectionService="True" UseSharedMailbox="False">
                     <umam:MoveEmailConnections.MailFolderArgument>
                       <umamm:MailFolderArgument ConnectionDescriptor="{x:Null}" ManualEntryFolder="{x:Null}" BrowserFolder="Bandeja de entrada/Altas" BrowserFolderId="AQMkADAwATM3ZmYBLWE3OGItOWNjADctMDACLTAwCgAuAAADG4uqdcAYfEKJZ0Hj7xwmlQEAvbXfGcFUjk6QxnNsqJuDpgAAAmgAAAE=" ConnectionKey="73500a74-f50c-4406-94d2-bf9e30576610" SelectionMode="Browse">
                         <umamm:MailFolderArgument.Backup>
@@ -237,13 +237,13 @@
                     </umam:MoveEmailConnections.MailboxArg>
                   </umam:MoveEmailConnections>
                 </Sequence>
-                <Sequence x:Key="BAJA" DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,335.2" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                <Sequence x:Key="BAJA" DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,343.2" sap2010:WorkflowViewState.IdRef="Sequence_17">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <umam:MoveEmailConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID4}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID5}" ManualEntryFolder="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" BodyAsHtml="False" BrowserFolder="Bandeja de entrada/Bajas" BrowserFolderId="AQMkADAwATM3ZmYBLWE3OGItOWNjADctMDACLTAwCgAuAAADG4uqdcAYfEKJZ0Hj7xwmlQEAvbXfGcFUjk6QxnNsqJuDpgAAAmgBAAAA" ConnectionId="73500a74-f50c-4406-94d2-bf9e30576610" DisplayName="Move Email" Email="[currentOffice365Message]" sap:VirtualizedContainerService.HintSize="416,275.2" sap2010:WorkflowViewState.IdRef="MoveEmailConnections_4" SelectionMode="Browse" UseConnectionService="True" UseSharedMailbox="False">
+                  <umam:MoveEmailConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID4}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID5}" ManualEntryFolder="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" BodyAsHtml="False" BrowserFolder="Bandeja de entrada/Bajas" BrowserFolderId="AQMkADAwATM3ZmYBLWE3OGItOWNjADctMDACLTAwCgAuAAADG4uqdcAYfEKJZ0Hj7xwmlQEAvbXfGcFUjk6QxnNsqJuDpgAAAmgBAAAA" ConnectionId="73500a74-f50c-4406-94d2-bf9e30576610" DisplayName="Move Email" Email="[currentOffice365Message]" sap:VirtualizedContainerService.HintSize="416,279.2" sap2010:WorkflowViewState.IdRef="MoveEmailConnections_4" SelectionMode="Browse" UseConnectionService="True" UseSharedMailbox="False">
                     <umam:MoveEmailConnections.MailFolderArgument>
                       <umamm:MailFolderArgument ConnectionDescriptor="{x:Null}" ManualEntryFolder="{x:Null}" BrowserFolder="Bandeja de entrada/Bajas" BrowserFolderId="AQMkADAwATM3ZmYBLWE3OGItOWNjADctMDACLTAwCgAuAAADG4uqdcAYfEKJZ0Hj7xwmlQEAvbXfGcFUjk6QxnNsqJuDpgAAAmgBAAAA" ConnectionKey="73500a74-f50c-4406-94d2-bf9e30576610" SelectionMode="Browse">
                         <umamm:MailFolderArgument.Backup>
