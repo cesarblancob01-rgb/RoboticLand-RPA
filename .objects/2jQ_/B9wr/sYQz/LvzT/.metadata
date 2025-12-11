@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Mayormente nublado(2)",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "LvzT74qPCEGBSmK8yIHaGw",
+  "Reference": "GjN0GRkAPUqStKZUxzkHCQ/LvzT74qPCEGBSmK8yIHaGw",
+  "ParentRef": "GjN0GRkAPUqStKZUxzkHCQ/sYQz45gV00CAUOCVEgzeHA",
+  "Created": "2025-12-09T12:58:38.6516378Z",
+  "Updated": "2025-12-09T12:58:38.6516378Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.21.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

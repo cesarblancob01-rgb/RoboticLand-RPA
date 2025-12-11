@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="XVyPryYkEk2zQ3rh15ToIA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="google.com/search" CVScreenId="9793779e-6ad8-45b3-9558-f78d011dd77a" CvType="AnyWordGroup" DesignTimeRectangle="499, 449, 189, 17" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='wob_dc' tag='SPAN' /&gt;" Guid="4e4681be-eab7-4a65-a0d8-3b6c1ecfb920" ScopeSelectorArgument="&lt;html app='chrome.exe' title='el tiempo en ciudad real mañana - Buscar con Google' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="9793779e-6ad8-45b3-9558-f78d011dd77a" CvTextArea="108, 408, 52, 40" CvTextArgument="10" CvType="Text" DesignTimeRectangle="106, 403, 53, 53" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='wob_tm' tag='SPAN' type='' class='wob_t q8U8x' aaname='10' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='10' /&gt;" Guid="b544486e-7c43-4d28-95ec-4bd5e13f2b60" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="788cd45e0751737b2308bf91aea63ffc.png" xmlns="">0CdDXBDt3-kmNhQU6zOtnCQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetText</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

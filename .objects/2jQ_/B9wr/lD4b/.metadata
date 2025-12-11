@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Chrome El tiempo en albacete - Buscar con Goo",
+  "Type": "Screen",
+  "Id": "lD4bX8OUsE6gVEo1q3LpzQ",
+  "Reference": "GjN0GRkAPUqStKZUxzkHCQ/lD4bX8OUsE6gVEo1q3LpzQ",
+  "ParentRef": "GjN0GRkAPUqStKZUxzkHCQ/B9wrBWKKbE2XGaL52-LDCw",
+  "Created": "2025-12-05T16:44:33.1948598Z",
+  "Updated": "2025-12-05T16:44:33.1948598Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.21.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

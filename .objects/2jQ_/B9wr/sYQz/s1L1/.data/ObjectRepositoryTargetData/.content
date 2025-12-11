@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="nvz5njQphUmIDZG28HcOCQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="google.com/search" CVScreenId="87a1a375-bfbe-4b27-b9a4-a034a8928c23" CvType="AnyWordGroup" DesignTimeRectangle="150, 415, 18, 17" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aria-label='°Celsius' aria-role='button' tag='SPAN' /&gt;" Guid="efcfd759-d613-44c8-a250-c151c0a0dc9b" ScopeSelectorArgument="&lt;html app='chrome.exe' title='el tiempo en: - Buscar con Google' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="4ce76f4721aedabe2f756504ae8412b4.png" xmlns="">0b2PSQCO8EUOYxnqIcOMJXg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetText</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>
