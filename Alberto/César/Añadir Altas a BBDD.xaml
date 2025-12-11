@@ -113,15 +113,19 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Añadir_Altas" sap:VirtualizedContainerService.HintSize="794.8000000000001,3017.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Añadir_Altas" sap:VirtualizedContainerService.HintSize="794.8000000000001,3372.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Sequence Altas" sap:VirtualizedContainerService.HintSize="553.6,2994.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Sequence Altas" sap:VirtualizedContainerService.HintSize="588.8,3349.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="scg:List(umm:Office365Message)" Name="mailsAltas" />
       </Sequence.Variables>
@@ -131,7 +135,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <umam:GetEmailListConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Filter="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID0}" FreeTextFilter="{x:Null}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID1}" ManualEntryFolder="{x:Null}" QueryFilter="{x:Null}" AuthScopesInvalid="False" BodyAsHtml="False" BrowserFolder="Bandeja de entrada/Altas" BrowserFolderId="AQMkADAwATM3ZmYBLWE3OGItOWNjADctMDACLTAwCgAuAAADG4uqdcAYfEKJZ0Hj7xwmlQEAvbXfGcFUjk6QxnNsqJuDpgAAAmgAAAE=" ConnectionId="73500a74-f50c-4406-94d2-bf9e30576610" DisplayName="Get Email List" EmailList="[mailsAltas]" FilterSelectionMode="ConditionBuilder" sap:VirtualizedContainerService.HintSize="520,284" sap2010:WorkflowViewState.IdRef="GetEmailListConnections_1" Importance="Any" IncludeSubfolders="False" MarkAsRead="False" MaxResults="100" OrderByDate="NewestFirst" SelectionMode="Browse" UnreadOnly="False" UseConnectionService="True" UseSharedMailbox="False" WithAttachmentsOnly="False">
+      <umam:GetEmailListConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Filter="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID0}" FreeTextFilter="{x:Null}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID1}" ManualEntryFolder="{x:Null}" QueryFilter="{x:Null}" AuthScopesInvalid="False" BodyAsHtml="False" BrowserFolder="Bandeja de entrada/Altas" BrowserFolderId="AQMkADAwATM3ZmYBLWE3OGItOWNjADctMDACLTAwCgAuAAADG4uqdcAYfEKJZ0Hj7xwmlQEAvbXfGcFUjk6QxnNsqJuDpgAAAmgAAAE=" ConnectionId="73500a74-f50c-4406-94d2-bf9e30576610" DisplayName="Get Email List" EmailList="[mailsAltas]" FilterSelectionMode="ConditionBuilder" sap:VirtualizedContainerService.HintSize="555.2,284" sap2010:WorkflowViewState.IdRef="GetEmailListConnections_1" Importance="Any" IncludeSubfolders="False" MarkAsRead="True" MaxResults="100" OrderByDate="NewestFirst" SelectionMode="Browse" UnreadOnly="True" UseConnectionService="True" UseSharedMailbox="False" WithAttachmentsOnly="False">
         <umam:GetEmailListConnections.FilterSelectionBackup>
           <usau:BackupSlot x:TypeArguments="umame:FilterMode" StoredValue="ConditionBuilder">
             <usau:BackupSlot.BackupValues>
@@ -162,13 +166,13 @@
           </umamm:MailboxArgument>
         </umam:GetEmailListConnections.MailboxArg>
       </umam:GetEmailListConnections>
-      <ui:ForEach x:TypeArguments="umm:Office365Message" CurrentIndex="{x:Null}" DisplayName="For Each currentOffice365Message" sap:VirtualizedContainerService.HintSize="520,2513.6" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[mailsAltas]">
+      <ui:ForEach x:TypeArguments="umm:Office365Message" CurrentIndex="{x:Null}" DisplayName="For Each currentOffice365Message" sap:VirtualizedContainerService.HintSize="555.2,2868.8" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[mailsAltas]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="umm:Office365Message">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="umm:Office365Message" Name="currentOffice365Message" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="518.4,2383.2" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="553.6,2738.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="mensaje" />
                 <Variable x:TypeArguments="x:String" Name="strDNI" />
@@ -185,7 +189,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign sap:VirtualizedContainerService.HintSize="484.8,178.4" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign DisplayName="Assign mensaje completo" sap:VirtualizedContainerService.HintSize="520,174.4" sap2010:WorkflowViewState.IdRef="Assign_1">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[mensaje]</OutArgument>
                 </Assign.To>
@@ -193,7 +197,7 @@
                   <InArgument x:TypeArguments="x:String">[currentOffice365Message.Body]</InArgument>
                 </Assign.Value>
               </Assign>
-              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="484.8,371.2" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="520,371.2" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                 <ui:MultipleAssign.AssignOperations>
                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -263,86 +267,107 @@
                   </scg:List>
                 </ui:MultipleAssign.AssignOperations>
               </ui:MultipleAssign>
-              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484.8,126.4" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;Los datos extraídos del mensaje son estos: &quot; +&#xA;&quot;DNI: &quot; + strDNI + vbCrLf +&#xA;&quot;Nombre: &quot; + strNombre +vbCrLf +&#xA;&quot;Sexo: &quot; + strSexo +  vbCrLf+ &#xA;&quot;Edad: &quot; + strEdad + vbCrLf+&#xA;&quot;Teléfono: &quot; + strTelefono +vbCrLf+&#xA;&quot;Correo: &quot; + strCorreo + vbCrLf+&#xA;&quot;Dirección: &quot; + strDireccion + vbCrLf+&#xA;&quot;Especialidad: &quot; + strEspecialidad]" />
-              <Sequence DisplayName="Sequence Meter datos a Excel" sap:VirtualizedContainerService.HintSize="484.8,1643.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                <Sequence.Variables>
-                  <Variable x:TypeArguments="x:String" Name="strExcelPath" />
-                  <Variable x:TypeArguments="sd:DataTable" Name="dtPacientes" />
-                  <Variable x:TypeArguments="sd:DataTable" Name="dtPacientesFiltrado" />
-                  <Variable x:TypeArguments="x:Int32" Name="cantidad" />
-                </Sequence.Variables>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <Assign DisplayName="Assign Path a Excel" sap:VirtualizedContainerService.HintSize="451.2,178.4" sap2010:WorkflowViewState.IdRef="Assign_3">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[strExcelPath]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">["C:\Users\Usuario\Documents\Curso RPA\Proyecto Final\Archivos RoboticLand\Paciente_Datos.xlsx"]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dtPacientes]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="451.2,124" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Pacientes_Registrados" WorkbookPath="[strExcelPath]" />
-                <ui:FilterDataTable DataTable="[dtPacientes]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="451.2,198.4" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dtPacientesFiltrado]" SelectColumnsMode="Remove">
-                  <ui:FilterDataTable.Filters>
-                    <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
-                      <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
-                        <ui:FilterOperationArgument.Column>
-                          <InArgument x:TypeArguments="x:String">["DNI"]</InArgument>
-                        </ui:FilterOperationArgument.Column>
-                        <ui:FilterOperationArgument.Operand>
-                          <InArgument x:TypeArguments="x:String">[strDNI]</InArgument>
-                        </ui:FilterOperationArgument.Operand>
-                      </ui:FilterOperationArgument>
-                    </scg:List>
-                  </ui:FilterDataTable.Filters>
-                  <ui:FilterDataTable.SelectColumns>
-                    <scg:List x:TypeArguments="InArgument" Capacity="4">
-                      <x:Null />
-                    </scg:List>
-                  </ui:FilterDataTable.SelectColumns>
-                </ui:FilterDataTable>
-                <Assign sap:VirtualizedContainerService.HintSize="451.2,178.4" sap2010:WorkflowViewState.IdRef="Assign_4">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:Int32">[cantidad]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:Int32">[dtPacientesFiltrado.Rows.Count]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <If Condition="[cantidad = 0]" sap:VirtualizedContainerService.HintSize="451.2,872.8" sap2010:WorkflowViewState.IdRef="If_1">
-                  <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,557.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="520,122.4" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;Los datos extraídos del mensaje son estos: &quot; +&#xA;&quot;DNI: &quot; + strDNI + vbCrLf +&#xA;&quot;Nombre: &quot; + strNombre +vbCrLf +&#xA;&quot;Sexo: &quot; + strSexo +  vbCrLf+ &#xA;&quot;Edad: &quot; + strEdad + vbCrLf+&#xA;&quot;Teléfono: &quot; + strTelefono +vbCrLf+&#xA;&quot;Correo: &quot; + strCorreo + vbCrLf+&#xA;&quot;Dirección: &quot; + strDireccion + vbCrLf+&#xA;&quot;Especialidad: &quot; + strEspecialidad]" />
+              <If Condition="[Not String.IsNullOrWhiteSpace(strDNI) AndAlso&#xD;&#xA;Not String.IsNullOrWhiteSpace(strNombre) AndAlso&#xD;&#xA;Not String.IsNullOrWhiteSpace(strSexo) AndAlso&#xD;&#xA;Not String.IsNullOrWhiteSpace(strEdad) AndAlso&#xD;&#xA;Not String.IsNullOrWhiteSpace(strTelefono) AndAlso&#xD;&#xA;Not String.IsNullOrWhiteSpace(strCorreo) AndAlso&#xD;&#xA;Not String.IsNullOrWhiteSpace(strDireccion) AndAlso&#xD;&#xA;Not String.IsNullOrWhiteSpace(strEspecialidad)]" DisplayName="If Están TODOS los datos en el mensaje" sap:VirtualizedContainerService.HintSize="520,2006.4" sap2010:WorkflowViewState.IdRef="If_3">
+                <If.Then>
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="518.4,1699.2" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="Sequence Meter datos a Excel" sap:VirtualizedContainerService.HintSize="484.8,1639.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:String" Name="strExcelPath" />
+                        <Variable x:TypeArguments="sd:DataTable" Name="dtPacientes" />
+                        <Variable x:TypeArguments="sd:DataTable" Name="dtPacientesFiltrado" />
+                        <Variable x:TypeArguments="x:Int32" Name="cantidad" />
+                      </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Alta&quot;,strDNI,strNombre, strSexo, strEdad, strTelefono, strCorreo, strDireccion, strEspecialidad }]" DataTable="[dtPacientes]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
-                      <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[dtPacientes]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="416,152" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Pacientes_Registrados" WorkbookPath="[strExcelPath]" />
-                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,117.6" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;El paciente con DN: &quot; + strDNI + &quot; y con el nombre de &quot; + strNombre + &quot;. Ha sido añadido a la Base de Datos&quot;]" />
+                      <Assign DisplayName="Assign Path a Excel" sap:VirtualizedContainerService.HintSize="451.2,178.4" sap2010:WorkflowViewState.IdRef="Assign_3">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[strExcelPath]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">["C:\Users\Usuario\Documents\Curso RPA\Proyecto Final\Archivos RoboticLand\Paciente_Datos.xlsx"]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dtPacientes]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="451.2,124" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Pacientes_Registrados" WorkbookPath="[strExcelPath]" />
+                      <ui:FilterDataTable DataTable="[dtPacientes]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="451.2,198.4" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dtPacientesFiltrado]" SelectColumnsMode="Remove">
+                        <ui:FilterDataTable.Filters>
+                          <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                            <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                              <ui:FilterOperationArgument.Column>
+                                <InArgument x:TypeArguments="x:String">["DNI"]</InArgument>
+                              </ui:FilterOperationArgument.Column>
+                              <ui:FilterOperationArgument.Operand>
+                                <InArgument x:TypeArguments="x:String">[strDNI]</InArgument>
+                              </ui:FilterOperationArgument.Operand>
+                            </ui:FilterOperationArgument>
+                          </scg:List>
+                        </ui:FilterDataTable.Filters>
+                        <ui:FilterDataTable.SelectColumns>
+                          <scg:List x:TypeArguments="InArgument" Capacity="4">
+                            <x:Null />
+                          </scg:List>
+                        </ui:FilterDataTable.SelectColumns>
+                      </ui:FilterDataTable>
+                      <Assign sap:VirtualizedContainerService.HintSize="451.2,178.4" sap2010:WorkflowViewState.IdRef="Assign_4">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Int32">[cantidad]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Int32">[dtPacientesFiltrado.Rows.Count]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <If Condition="[cantidad = 0]" DisplayName="If No Está dentro de la BBDD" sap:VirtualizedContainerService.HintSize="451.2,872.8" sap2010:WorkflowViewState.IdRef="If_1">
+                        <If.Then>
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,557.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Alta&quot;,strDNI,strNombre, strSexo, strEdad, strTelefono, strCorreo, strDireccion, strEspecialidad }]" DataTable="[dtPacientes]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                            <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[dtPacientes]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="416,152" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Pacientes_Registrados" WorkbookPath="[strExcelPath]" />
+                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,117.6" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;El paciente con DN: &quot; + strDNI + &quot; y con el nombre de &quot; + strNombre + &quot;. Ha sido añadido a la Base de Datos&quot;]" />
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,181.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,117.6" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[&quot;El paciente con el DNI: &quot; + strDNI + &quot; y nombre &quot; + strNombre + &quot; ya está registrado en la Base de Datos.&quot;]" />
+                          </Sequence>
+                        </If.Else>
+                      </If>
                     </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,181.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,117.6" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[&quot;El paciente con el DNI: &quot; + strDNI + &quot; y nombre &quot; + strNombre + &quot; ya está registrado en la Base de Datos.&quot;]" />
-                    </Sequence>
-                  </If.Else>
-                </If>
-              </Sequence>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="518.4,177.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484.8,117.6" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="Faltan datos en el correo y no será añadido a la BBDD." />
+                  </Sequence>
+                </If.Else>
+              </If>
             </Sequence>
           </ActivityAction>
         </ui:ForEach.Body>
       </ui:ForEach>
-      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="520,113.6" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="La base de datos ha sido actualizada" />
+      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="555.2,113.6" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="La base de datos ha sido actualizada" />
     </Sequence>
   </Sequence>
 </Activity>
