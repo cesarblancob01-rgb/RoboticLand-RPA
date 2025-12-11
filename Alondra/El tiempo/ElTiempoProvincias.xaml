@@ -109,7 +109,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="El_tiempo" sap:VirtualizedContainerService.HintSize="1494,1319" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="El_tiempo" sap:VirtualizedContainerService.HintSize="509,1319" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="Mañana" Name="FechaCita" />
       <Variable x:TypeArguments="sd:DataTable" Name="ExcelProvincias" />
@@ -154,10 +154,7 @@
     </Sequence>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ObtenerElTiempo - Invoke Workflow File (Alondra\ObtenerElTiempo.xaml)" sap:VirtualizedContainerService.HintSize="450,182" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Alondra\El tiempo\ObtenerElTiempo.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_Sugerencia">[Sugerencia]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_Tiempo">[ResultadoElTiempo]</OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Fecha">[FechaCita]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Provincia">[Provincia]</InArgument>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="450,109" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Resumen de la Cita:&quot; + vbCrLf + &quot;---------------------&quot; + vbCrLf + &quot;Ciudad: &quot; + Provincia + vbCrLf + &quot;Fecha: &quot; + FechaCita + vbCrLf + vbCrLf + &quot;Pronóstico: &quot; + ResultadoElTiempo + vbCrLf + &quot;Recomendación: &quot; + Sugerencia]" />

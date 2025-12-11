@@ -1,5 +1,6 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="BuscarPaciente" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
+    <x:Property Name="out_OtrosDatos" Type="OutArgument(x:String)" />
     <x:Property Name="outDNI" Type="OutArgument(x:String)" />
     <x:Property Name="out_Ciudad" Type="OutArgument(x:String)" />
     <x:Property Name="out_Email" Type="OutArgument(x:String)" />
@@ -99,9 +100,14 @@
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="BuscarPaciente" sap:VirtualizedContainerService.HintSize="486,2861" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="BuscarPaciente" sap:VirtualizedContainerService.HintSize="495,3032" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtPacientes" />
       <Variable x:TypeArguments="x:String" Name="DniBusqueda" />
@@ -140,16 +146,16 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LookupDataTable>
-    <Sequence DisplayName="Sequence Registro paciente si no encuentra" sap:VirtualizedContainerService.HintSize="486,2114" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="Sequence Registro paciente si no encuentra" sap:VirtualizedContainerService.HintSize="486,2285" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If Condition="[indiceFila &gt;=0]" sap:VirtualizedContainerService.HintSize="452,2031" sap2010:WorkflowViewState.IdRef="If_1">
+      <If Condition="[indiceFila &gt;=0]" sap:VirtualizedContainerService.HintSize="452,2202" sap2010:WorkflowViewState.IdRef="If_1">
         <If.Then>
-          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,869" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -198,13 +204,13 @@
           </Sequence>
         </If.Then>
         <If.Else>
-          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,1876" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,2047" sap2010:WorkflowViewState.IdRef="Sequence_7">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="416,61" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="Ingrese el Nombre completo" TopMost="False">
+            <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog Nombre" sap:VirtualizedContainerService.HintSize="416,61" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="Ingrese el Nombre completo" TopMost="False">
               <ui:InputDialog.Result>
                 <OutArgument x:TypeArguments="x:String">[Nombre]</OutArgument>
               </ui:InputDialog.Result>
@@ -215,7 +221,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:InputDialog>
-            <ui:InputDialog Options="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="416,61" sap2010:WorkflowViewState.IdRef="InputDialog_3" IsPassword="False" Label="Ingrese el Sexo (M/F)" OptionsString="M;F" TopMost="False">
+            <ui:InputDialog Options="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog Sexo" sap:VirtualizedContainerService.HintSize="416,61" sap2010:WorkflowViewState.IdRef="InputDialog_3" IsPassword="False" Label="Ingrese el Sexo (M/F)" OptionsString="M;F" TopMost="False">
               <ui:InputDialog.Result>
                 <OutArgument x:TypeArguments="x:String">[Sexo]</OutArgument>
               </ui:InputDialog.Result>
@@ -226,7 +232,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:InputDialog>
-            <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="416,61" sap2010:WorkflowViewState.IdRef="InputDialog_4" IsPassword="False" Label="Ingrese la edad" TopMost="False">
+            <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog Edad" sap:VirtualizedContainerService.HintSize="416,61" sap2010:WorkflowViewState.IdRef="InputDialog_4" IsPassword="False" Label="Ingrese la edad" TopMost="False">
               <ui:InputDialog.Result>
                 <OutArgument x:TypeArguments="x:String">[Edad]</OutArgument>
               </ui:InputDialog.Result>
@@ -237,7 +243,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:InputDialog>
-            <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="416,61" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Label="Ingrese el número de teléfono" TopMost="False">
+            <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog Telefono" sap:VirtualizedContainerService.HintSize="416,61" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Label="Ingrese el número de teléfono" TopMost="False">
               <ui:InputDialog.Result>
                 <OutArgument x:TypeArguments="x:String">[Telefono]</OutArgument>
               </ui:InputDialog.Result>
@@ -248,7 +254,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:InputDialog>
-            <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="416,61" sap2010:WorkflowViewState.IdRef="InputDialog_6" IsPassword="False" Label="Ingrese el Correo Electrónico" TopMost="False">
+            <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog Correo" sap:VirtualizedContainerService.HintSize="416,61" sap2010:WorkflowViewState.IdRef="InputDialog_6" IsPassword="False" Label="Ingrese el Correo Electrónico" TopMost="False">
               <ui:InputDialog.Result>
                 <OutArgument x:TypeArguments="x:String">[Correo]</OutArgument>
               </ui:InputDialog.Result>
@@ -259,7 +265,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:InputDialog>
-            <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="416,61" sap2010:WorkflowViewState.IdRef="InputDialog_7" IsPassword="False" Label="Ingrese su direción" TopMost="False">
+            <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog Direccion" sap:VirtualizedContainerService.HintSize="416,61" sap2010:WorkflowViewState.IdRef="InputDialog_7" IsPassword="False" Label="Ingrese su direción" TopMost="False">
               <ui:InputDialog.Result>
                 <OutArgument x:TypeArguments="x:String">[Direccion]</OutArgument>
               </ui:InputDialog.Result>
@@ -270,7 +276,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:InputDialog>
-            <ui:InputDialog Options="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="416,61" sap2010:WorkflowViewState.IdRef="InputDialog_8" IsPassword="False" Label="Ingrese la especialidad médica que desea" OptionsString="Dermatología; Traumatología; Cardiología" TopMost="False">
+            <ui:InputDialog Options="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog Especialidad" sap:VirtualizedContainerService.HintSize="416,61" sap2010:WorkflowViewState.IdRef="InputDialog_8" IsPassword="False" Label="Ingrese la especialidad médica que desea" OptionsString="Dermatología; Traumatología; Cardiología" TopMost="False">
               <ui:InputDialog.Result>
                 <OutArgument x:TypeArguments="x:String">[Especialidad]</OutArgument>
               </ui:InputDialog.Result>
@@ -286,7 +292,7 @@
                 <OutArgument x:TypeArguments="s:String[]">[DatosNuevoPaciente]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="s:String[]">[New String(){DniBusqueda, Nombre, Sexo, Edad, Telefono, Correo, Direccion, Especialidad}]</InArgument>
+                <InArgument x:TypeArguments="s:String[]">[New String(){"Alta", DniBusqueda, Nombre, Sexo, Edad, Telefono, Correo, Direccion, Especialidad}]</InArgument>
               </Assign.Value>
             </Assign>
             <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[DatosNuevoPaciente]" DataTable="[dtPacientes]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="416,225" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
@@ -308,7 +314,7 @@
                 <InArgument x:TypeArguments="x:String">[Correo]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="416,179" sap2010:WorkflowViewState.IdRef="Assign_8">
+            <Assign sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_8">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[out_Ciudad]</OutArgument>
               </Assign.To>
@@ -316,12 +322,20 @@
                 <InArgument x:TypeArguments="x:String">[Direccion]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="416,170" sap2010:WorkflowViewState.IdRef="Assign_9">
+            <Assign sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_9">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[outDNI]</OutArgument>
               </Assign.To>
               <Assign.Value>
                 <InArgument x:TypeArguments="x:String">[DniBusqueda]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="416,170" sap2010:WorkflowViewState.IdRef="Assign_10">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[out_OtrosDatos]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">["DNI: " + DniBusqueda + vbCrLf + "Nombre: " + Nombre + vbCrLf + "Sexo: " + Sexo + vbCrLf + "Edad: " + Edad + vbCrLf + "Teléfono: " + Telefono + vbCrLf + "Especialidad: " + Especialidad]</InArgument>
               </Assign.Value>
             </Assign>
           </Sequence>
