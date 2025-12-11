@@ -98,7 +98,7 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PrubaDDBB" sap:VirtualizedContainerService.HintSize="939.6,1918.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PrubaDDBB" sap:VirtualizedContainerService.HintSize="790.8000000000001,1918.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd1:DataTable" Name="dtPacientes" />
       <Variable x:TypeArguments="x:String" Name="strColumnName" />
@@ -247,7 +247,7 @@
               </scg:List>
             </ui:MultipleAssign.AssignOperations>
           </ui:MultipleAssign>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Esta Secuencia Funciona de la siguiente forma:&#xD;&#xA;Debemos pasar los datos, &#xD;&#xA;strColumnToUpdate es el nombre de la columna que vamos a modificar&#xD;&#xA;strValueUpdate es el dato que vamos a modificar&#xD;&#xA;strKeyUpdate es el nombre de la columna cuyos datos vamos a cambiar&#xD;&#xA;strValueKeyUpdate es el valor de la columna que vamos a cambiar" DisplayName="SSMS_ModificarPaciente - Invoke Workflow File (Alberto\SSMS_ModificarPaciente.xaml)" sap:VirtualizedContainerService.HintSize="478.4,331.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Alberto\SSMS_ModificarPaciente.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Esta Secuencia Funciona de la siguiente forma:&#xA;Debemos pasar los datos, &#xA;strColumnToUpdate es el nombre de la columna que vamos a modificar&#xA;strValueUpdate es el dato que vamos a modificar&#xA;strKeyUpdate es el nombre de la columna cuyos datos vamos a cambiar&#xA;strValueKeyUpdate es el valor de la columna que vamos a cambiar" DisplayName="SSMS_ModificarPaciente - Invoke Workflow File (Alberto\SSMS_ModificarPaciente.xaml)" sap:VirtualizedContainerService.HintSize="478.4,331.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Alberto\SSMS_ModificarPaciente.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="strColumnToUpdate">[strColumnToUpdate]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="strValueUpdate">[strValueUpdate]</InArgument>
