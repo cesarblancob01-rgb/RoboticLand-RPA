@@ -118,7 +118,7 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Procesar_Bajas_a_BBDD" sap:VirtualizedContainerService.HintSize="794.8000000000001,4166.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Procesar_Bajas_a_BBDD" sap:VirtualizedContainerService.HintSize="794.8000000000001,4066.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(umm:Office365Message)" Name="mailsBajas" />
     </Sequence.Variables>
@@ -127,7 +127,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Procesar Bajas" sap:VirtualizedContainerService.HintSize="624,4143.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Procesar Bajas" sap:VirtualizedContainerService.HintSize="624,4043.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -164,13 +164,13 @@
           </umamm:MailboxArgument>
         </umam:GetEmailListConnections.MailboxArg>
       </umam:GetEmailListConnections>
-      <ui:ForEach x:TypeArguments="umm:Office365Message" CurrentIndex="{x:Null}" DisplayName="For Each currentOffice365Message" sap:VirtualizedContainerService.HintSize="590.4,3776" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[mailsBajas]">
+      <ui:ForEach x:TypeArguments="umm:Office365Message" CurrentIndex="{x:Null}" DisplayName="For Each currentOffice365Message" sap:VirtualizedContainerService.HintSize="590.4,3676" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[mailsBajas]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="umm:Office365Message">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="umm:Office365Message" Name="currentOffice365Message" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="588.8,3654.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="588.8,3554.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="mensaje" />
                 <Variable x:TypeArguments="x:String" Name="strDNI" />
@@ -220,7 +220,7 @@
                   </scg:List>
                 </ui:MultipleAssign.AssignOperations>
               </ui:MultipleAssign>
-              <Sequence DisplayName="Señalar BAJA a paciente" sap:VirtualizedContainerService.HintSize="555.2,3049.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence DisplayName="Señalar BAJA a paciente" sap:VirtualizedContainerService.HintSize="555.2,2949.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="strExcelPath" />
                   <Variable x:TypeArguments="sd:DataTable" Name="dtPacientes" />
@@ -240,30 +240,30 @@
                   </Assign.Value>
                 </Assign>
                 <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dtPacientes]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="521.6,124" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Pacientes_Registrados" WorkbookPath="[strExcelPath]" />
-                <If Condition="[Not String.IsNullOrWhiteSpace(strDNI)]" DisplayName="If hay DNI" sap:VirtualizedContainerService.HintSize="521.6,2656" sap2010:WorkflowViewState.IdRef="If_3">
+                <If Condition="[Not String.IsNullOrWhiteSpace(strDNI)]" DisplayName="If hay DNI" sap:VirtualizedContainerService.HintSize="521.6,2556" sap2010:WorkflowViewState.IdRef="If_3">
                   <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="520,1797.6" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="520,1697.6" sap2010:WorkflowViewState.IdRef="Sequence_10">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="486.4,126.4" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[&quot;Los datos del paciente con DNI: &quot; + strDNI + &quot; y con el correo: &quot; +strCorreo + &quot; va a ser eliminado&quot;]" />
-                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtPacientes]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="486.4,1611.2" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtPacientes]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="486.4,1511.2" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
                         <ui:ForEachRow.Body>
                           <ActivityAction x:TypeArguments="sd:DataRow">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="484.8,1434.4" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="484.8,1334.4" sap2010:WorkflowViewState.IdRef="Sequence_9">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <If Condition="[CurrentRow(&quot;DNI&quot;).ToString= strDNI]" sap:VirtualizedContainerService.HintSize="451.2,1370.4" sap2010:WorkflowViewState.IdRef="If_2">
+                              <If Condition="[CurrentRow(&quot;DNI&quot;).ToString= strDNI]" sap:VirtualizedContainerService.HintSize="451.2,1270.4" sap2010:WorkflowViewState.IdRef="If_2">
                                 <If.Then>
-                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,1055.2" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,955.2" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -279,7 +279,7 @@
                                     </Assign>
                                     <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[dtPacientes]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="416,152" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Pacientes_Registrados" WorkbookPath="[strExcelPath]" />
                                     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,126.4" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;El paciente con DNI: &quot; + strDNI + &quot; y nombre &quot; + CurrentRow(&quot;Nombre&quot;).ToString + &quot; ha sido señalado para ser dado de BAJA&quot;]" />
-                                    <umam:SendMailConnections ArgumentAttachmentPaths="{x:Null}" AttachmentList="{x:Null}" AttachmentPaths="{x:Null}" Attachments="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID2}" ReplyTo="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="Existing" AuthScopesInvalid="False" Body="[string.Format(&quot;&lt;P&gt;&lt;SPAN&gt;Lamentamos mucho que dejes de usar nuestros servicios sanitarios. Puedes volver a contar con nosotros cuando lo necesites. &lt;/SPAN&gt;&lt;/P&gt;&quot;)]" ConnectionId="73500a74-f50c-4406-94d2-bf9e30576610" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="416,534.4" sap2010:WorkflowViewState.IdRef="SendMailConnections_3" Importance="Normal" InputType="HTML" SaveAsDraft="False" Subject="Baja Aceptada en Hospital RoboticLand" To="[New List(Of String) From {FromMessage}]" UseConnectionService="True" UseSharedMailbox="False">
+                                    <umam:SendMailConnections ArgumentAttachmentPaths="{x:Null}" AttachmentList="{x:Null}" AttachmentPaths="{x:Null}" Attachments="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID2}" ReplyTo="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="Existing" AuthScopesInvalid="False" Body="[&quot;Lamentamos mucho que dejes de usar nuestros servicios sanitarios.&quot; + CurrentRow(&quot;Nombre&quot;).ToString + &quot;Puedes volver a contar con nosotros cuando lo necesites.&quot;]" ConnectionId="73500a74-f50c-4406-94d2-bf9e30576610" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="416,434.4" sap2010:WorkflowViewState.IdRef="SendMailConnections_3" Importance="Normal" InputType="HTML" SaveAsDraft="False" Subject="Baja Aceptada en Hospital RoboticLand" To="[New List(Of String) From {FromMessage}]" UseConnectionService="True" UseSharedMailbox="False">
                                       <umam:SendMailConnections.AttachmentsBackup>
                                         <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
                                           <usau:BackupSlot.BackupValues>
@@ -333,7 +333,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="486.4,126.4" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="No se ha encontrado el DNI del paciente." />
-                      <umam:SendMailConnections ArgumentAttachmentPaths="{x:Null}" AttachmentList="{x:Null}" AttachmentPaths="{x:Null}" Attachments="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID3}" ReplyTo="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="Existing" AuthScopesInvalid="False" Body="[string.Format(&quot;&lt;P&gt;&lt;SPAN&gt;No se ha podido tramitar tu baja en nuestra base de datos. Por favor, revisa si sus datos est&amp;#225;n correctos&lt;/SPAN&gt;&lt;SPAN&gt; en el Email que has mandado&lt;/SPAN&gt;&lt;SPAN&gt; o contacte a soporte.&lt;/SPAN&gt;&lt;/P&gt;&quot;)]" ConnectionId="73500a74-f50c-4406-94d2-bf9e30576610" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="486.4,534.4" sap2010:WorkflowViewState.IdRef="SendMailConnections_2" Importance="Normal" InputType="HTML" SaveAsDraft="False" Subject="Baja Rechazada" To="[New List(Of String) From {FromMessage}]" UseConnectionService="True" UseSharedMailbox="False">
+                      <umam:SendMailConnections ArgumentAttachmentPaths="{x:Null}" AttachmentList="{x:Null}" AttachmentPaths="{x:Null}" Attachments="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID3}" ReplyTo="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="Existing" AuthScopesInvalid="False" Body="[string.Format(&quot;&lt;P&gt;&lt;SPAN&gt;No se ha podido tramitar tu baja en nuestra base de datos&lt;/SPAN&gt;&lt;SPAN&gt; debido a que no has introducido su DNI. Vuelva a intentarlo o contacte a soporte.&lt;/SPAN&gt;&lt;/P&gt;&quot;)]" ConnectionId="73500a74-f50c-4406-94d2-bf9e30576610" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="486.4,534.4" sap2010:WorkflowViewState.IdRef="SendMailConnections_2" Importance="Normal" InputType="HTML" SaveAsDraft="False" Subject="Baja Rechazada" To="[New List(Of String) From {FromMessage}]" UseConnectionService="True" UseSharedMailbox="False">
                         <umam:SendMailConnections.AttachmentsBackup>
                           <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
                             <usau:BackupSlot.BackupValues>
