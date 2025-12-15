@@ -1,4 +1,13 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SSMS_CogerDatos" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="SSMS_CogerDatos_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugam="clr-namespace:UiPath.GSuite.Activities.Models;assembly=UiPath.GSuite.Activities" xmlns:ugase="clr-namespace:UiPath.GSuite.Activities.Sheets.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugdm="clr-namespace:UiPath.GSuite.Drive.Models;assembly=UiPath.GSuite" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SSMS_CogerDatos" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="strDatoConsulta" Type="InArgument(x:String)" />
+    <x:Property Name="strNombreColumna" Type="InArgument(x:String)" />
+    <x:Property Name="dtDataFound" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>SSMS_CogerDatos_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -112,25 +121,12 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
       <AssemblyReference>Studio.Generated.TypedDataTable1</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SSMS_CogerDatos" sap:VirtualizedContainerService.HintSize="678.8000000000001,1613.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SSMS_CogerDatos" sap:VirtualizedContainerService.HintSize="846.8000000000001,695.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="sd:DataTable" Name="dtDataFound" />
-      <Variable x:TypeArguments="x:String" Name="strTablePacientesFound" />
-      <Variable x:TypeArguments="x:String" Name="strNombreSheets" />
-      <Variable x:TypeArguments="s:DateTime" Name="DayTime" />
-      <Variable x:TypeArguments="ugdm:GDriveRemoteItem" Name="NewSheets">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:String x:Key="SourceIdRef">CreateSpreadsheetConnections_1</x:String>
-            <x:String x:Key="SourcePropertyName">NewSpreadsheet</x:String>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </Variable>
-      <Variable x:TypeArguments="x:String" Name="myTime" />
-      <Variable x:TypeArguments="x:String" Name="strDatoConsulta" />
-      <Variable x:TypeArguments="x:String" Name="strNombreColumna" />
       <Variable x:TypeArguments="ui:DatabaseConnection" Name="DBConnect" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -177,59 +173,6 @@
         </Sequence>
       </ui:DatabaseTransaction.Body>
     </ui:DatabaseTransaction>
-    <ui:DatabaseDisconnect DatabaseConnection="[DBConnect]" DisplayName="Disconnect from Database" sap:VirtualizedContainerService.HintSize="483.2,56.8" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
-    <ui:OutputDataTable DataTable="[dtDataFound]" DisplayName="Output Data Table as Text" sap:VirtualizedContainerService.HintSize="483.2,112.8" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[strTablePacientesFound]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="483.2,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[strTablePacientesFound]" />
-    <uga:CreateSpreadsheetConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID0}" ManualEntryParentFolderId="{x:Null}" ParentFolderExisting="{x:Null}" AuthScopesInvalid="False" BrowserParentFolderFriendlyName="Proyecto RPA" BrowserParentFolderId="https://drive.google.com/drive/folders/1LdpJPTTpy7Yx7KXUfrDSVsTEcdvzpoOt" ConflictResolution="Fail" ConnectionId="4f265c55-2232-44b9-beb5-5a1caf10a895" DisplayName="Create Spreadsheet" FirstSheetName="Sheet1" sap:VirtualizedContainerService.HintSize="483.2,237.6" sap2010:WorkflowViewState.IdRef="CreateSpreadsheetConnections_3" NewSpreadsheet="[NewSheets]" ParentFolderInputMode="Browse" SpreadsheetName="Datos Paciente" UseConnectionService="True">
-      <uga:CreateSpreadsheetConnections.Item>
-        <ugam:DriveItemArgument ConnectionDescriptor="{x:Null}" Existing="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" BrowserId="https://drive.google.com/drive/folders/1LdpJPTTpy7Yx7KXUfrDSVsTEcdvzpoOt" ConnectionKey="4f265c55-2232-44b9-beb5-5a1caf10a895" FriendlyName="Proyecto RPA" FullPathHint="My Drive/Proyecto RPA" InputMode="Browse">
-          <ugam:DriveItemArgument.Backup>
-            <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" x:Name="__ReferenceID0" StoredValue="Browse">
-              <usau:BackupSlot.BackupValues>
-                <scg:Dictionary x:TypeArguments="ugade:EDriveItemMode, scg:List(x:Object)" />
-              </usau:BackupSlot.BackupValues>
-            </usau:BackupSlot>
-          </ugam:DriveItemArgument.Backup>
-          <ugam:DriveItemArgument.ParentIdFullPathHint>
-            <InArgument x:TypeArguments="x:String">
-              <Literal x:TypeArguments="x:String" Value="" />
-            </InArgument>
-          </ugam:DriveItemArgument.ParentIdFullPathHint>
-        </ugam:DriveItemArgument>
-      </uga:CreateSpreadsheetConnections.Item>
-    </uga:CreateSpreadsheetConnections>
-    <uga:WriteRangeConnections BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" ConnectionId="05f37f42-8b94-48ae-980e-6387ad977ce1" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="483.2,384.8" sap2010:WorkflowViewState.IdRef="WriteRangeConnections_3" IncludeHeaders="True" ItemSelectionMode="UseExisting" Range="Sheet1!A1" RowPosition="0" Source="[dtDataFound]" Spreadsheet="[NewSheets]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False" WriteMode="Overwrite">
-      <uga:WriteRangeConnections.FileIdBackup>
-        <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" x:Name="__ReferenceID1" StoredValue="UseExisting">
-          <usau:BackupSlot.BackupValues>
-            <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="2">
-              <x:Null />
-              <x:Null />
-            </scg:List>
-          </usau:BackupSlot.BackupValues>
-        </usau:BackupSlot>
-      </uga:WriteRangeConnections.FileIdBackup>
-      <uga:WriteRangeConnections.Item>
-        <ugam:DriveItemArgument Backup="{x:Reference __ReferenceID1}" BrowserId="{x:Null}" ConnectionDescriptor="{x:Null}" ConnectionKey="{x:Null}" FriendlyName="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" Existing="[NewSheets]" InputMode="UseExisting">
-          <ugam:DriveItemArgument.FullPathHint>
-            <InArgument x:TypeArguments="x:String">
-              <Literal x:TypeArguments="x:String" Value="" />
-            </InArgument>
-          </ugam:DriveItemArgument.FullPathHint>
-          <ugam:DriveItemArgument.ParentIdFullPathHint>
-            <InArgument x:TypeArguments="x:String">
-              <Literal x:TypeArguments="x:String" Value="" />
-            </InArgument>
-          </ugam:DriveItemArgument.ParentIdFullPathHint>
-        </ugam:DriveItemArgument>
-      </uga:WriteRangeConnections.Item>
-      <uga:WriteRangeConnections.RangeWriteModeBackup>
-        <usau:BackupSlot x:TypeArguments="ugase:RangeWriteMode" StoredValue="Overwrite">
-          <usau:BackupSlot.BackupValues>
-            <scg:Dictionary x:TypeArguments="ugase:RangeWriteMode, scg:List(x:Object)" />
-          </usau:BackupSlot.BackupValues>
-        </usau:BackupSlot>
-      </uga:WriteRangeConnections.RangeWriteModeBackup>
-    </uga:WriteRangeConnections>
+    <ui:DatabaseDisconnect DatabaseConnection="[DBConnect]" DisplayName="Disconnect from Database" sap:VirtualizedContainerService.HintSize="483.2,48" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
   </Sequence>
 </Activity>
