@@ -107,9 +107,10 @@
       <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="El_tiempo" sap:VirtualizedContainerService.HintSize="794.8000000000001,1319.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="El_tiempo" sap:VirtualizedContainerService.HintSize="520,669" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="Mañana" Name="FechaCita" />
       <Variable x:TypeArguments="sd:DataTable" Name="ExcelProvincias" />
@@ -123,40 +124,23 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="449.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;El usuario selecciona la provincia&quot;]" />
-    <Sequence DisplayName="Sequence Busqueda tiempo" sap:VirtualizedContainerService.HintSize="449.6,827.2" sap2010:WorkflowViewState.IdRef="Sequence_5">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[ExcelProvincias]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="416,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Hoja1" WorkbookPath="Alondra\El tiempo\ExcelProvincias.xlsx" />
-      <Assign sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="Assign_1">
-        <Assign.To>
-          <OutArgument x:TypeArguments="s:String[]">[ListaOpcionesProvincias]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="s:String[]">[ExcelProvincias.AsEnumerable().Select(Function(row) row("Provincia").ToString()).ToArray()]</InArgument>
-        </Assign.Value>
-      </Assign>
-      <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="416,327.2" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="Seleccione su ciudad" OptionsString="[String.Join(&quot;; &quot;, ListaOpcionesProvincias)]" Title="CIUDAD" TopMost="False">
-        <ui:InputDialog.Result>
-          <OutArgument x:TypeArguments="x:String">[Provincia]</OutArgument>
-        </ui:InputDialog.Result>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ui:InputDialog>
-      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,114" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;El usuario ha seleccionado la ciudad de: &quot; + Provincia]" />
-    </Sequence>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ObtenerElTiempo - Invoke Workflow File (Alondra\ObtenerElTiempo.xaml)" sap:VirtualizedContainerService.HintSize="449.6,180.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Alberto\César\Alondra_Pruebas\El Tiempo\ObtenerElTiempo.xaml">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Busqueda de el tiempo&quot;]" />
+    <Assign sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[Provincia]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["Albacete"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ObtenerElTiempo - Invoke Workflow File (Alondra\ObtenerElTiempo.xaml)" sap:VirtualizedContainerService.HintSize="450,182" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Alondra\El tiempo\ObtenerElTiempo.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Sugerencia">[Sugerencia]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Tiempo">[ResultadoElTiempo]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Fecha">[FechaCita]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Provincia">[Provincia]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="449.6,113.6" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Resumen de la Cita:&quot; + vbCrLf + &quot;---------------------&quot; + vbCrLf + &quot;Ciudad: &quot; + Provincia + vbCrLf + &quot;Fecha: &quot; + FechaCita + vbCrLf + vbCrLf + &quot;Pronóstico: &quot; + ResultadoElTiempo + vbCrLf + &quot;Recomendación: &quot; + Sugerencia]" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Resumen de la Cita:&quot; + vbCrLf + &quot;---------------------&quot; + vbCrLf + &quot;Ciudad: &quot; + Provincia + vbCrLf + &quot;Fecha: &quot; + FechaCita + vbCrLf + vbCrLf + &quot;Pronóstico: &quot; + ResultadoElTiempo + vbCrLf + &quot;Recomendación: &quot; + Sugerencia]" />
   </Sequence>
 </Activity>
