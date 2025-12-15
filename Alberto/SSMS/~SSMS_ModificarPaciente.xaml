@@ -1,13 +1,14 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SSMS_CogerDatos" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SSMS_ModificarPaciente" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="strDatoConsulta" Type="InArgument(x:String)" />
-    <x:Property Name="strNombreColumna" Type="InArgument(x:String)" />
-    <x:Property Name="dtDataFound" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="strColumnToUpdate" Type="InArgument(x:String)" />
+    <x:Property Name="strValueUpdate" Type="InArgument(x:String)" />
+    <x:Property Name="strDNIUpdate" Type="InArgument(x:String)" />
+    <x:Property Name="strValueDNIUpdate" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap2010:WorkflowViewState.IdRef>SSMS_CogerDatos_1</sap2010:WorkflowViewState.IdRef>
+  <sap2010:WorkflowViewState.IdRef>SSMS_ModificarPaciente_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -34,35 +35,15 @@
       <x:String>System.Windows.Markup</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
       <x:String>System.Security</x:String>
       <x:String>UiPath.Database</x:String>
       <x:String>UiPath.Database.Activities</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
-      <x:String>System.ComponentModel</x:String>
-      <x:String>System.Runtime.Serialization</x:String>
-      <x:String>System.Xml.Serialization</x:String>
       <x:String>System.Reflection</x:String>
-      <x:String>UiPath.GSuite.Drive.Models</x:String>
-      <x:String>UiPath.Platform.ResourceHandling</x:String>
       <x:String>System.Linq.Expressions</x:String>
-      <x:String>UiPath.Shared.Activities.Utils</x:String>
-      <x:String>UiPath.GSuite.Activities.Drive.Enums</x:String>
-      <x:String>UiPath.GSuite.Activities.Enums</x:String>
-      <x:String>UiPath.GSuite.Activities.Models</x:String>
-      <x:String>UiPath.GSuite.Activities.Sheets.Enums</x:String>
-      <x:String>UiPath.GSuite.Activities</x:String>
-      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
-      <x:String>System.Activities.Runtime.Collections</x:String>
-      <x:String>UiPath.GSuite</x:String>
-      <x:String>UiPath.GSuite.Activities.Sheets.Filters</x:String>
-      <x:String>UiPath.GSuite.Activities.Filters</x:String>
-      <x:String>UiPath.GSuite.Sheets.Enums</x:String>
-      <x:String>UiPath.GSuite.Activities.Utilities</x:String>
-      <x:String>UiPath.Productivity.Activities.Diagnostics</x:String>
-      <x:String>UiPath.Productivity.Activities.Persistence</x:String>
-      <x:String>UiPath.Sdk.Activities</x:String>
-      <x:String>UiPath.Sdk.Activities.DependencyInjection.Contracts</x:String>
-      <x:String>UiPath.Sdk.Activities.DependencyInjection</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -88,12 +69,8 @@
       <AssemblyReference>System.Xml.Linq</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable1</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
-      <AssemblyReference>System.Security.Permissions</AssemblyReference>
-      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
-      <AssemblyReference>UiPath.Database</AssemblyReference>
-      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
       <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
       <AssemblyReference>PresentationFramework</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
@@ -104,11 +81,15 @@
       <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
       <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
       <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
       <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
-      <AssemblyReference>UiPath.GSuite</AssemblyReference>
-      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.MetadataLoadContext</AssemblyReference>
       <AssemblyReference>System.Memory.Data</AssemblyReference>
       <AssemblyReference>System.Console</AssemblyReference>
       <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
@@ -118,46 +99,21 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
-      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
-      <AssemblyReference>Studio.Generated.TypedDataTable1</AssemblyReference>
-      <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>NPOI.Core</AssemblyReference>
       <AssemblyReference>GlobalVariablesT1PNoYwrqg</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SSMS_CogerDatos" sap:VirtualizedContainerService.HintSize="846.8000000000001,695.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SSMS_ModificarPaciente" sap:VirtualizedContainerService.HintSize="846.8000000000001,515.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="ui:DatabaseConnection" Name="DBConnect" />
+      <Variable x:TypeArguments="ui:DatabaseConnection" Name="DBRobotLandConnect" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="483.2,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
-      <ui:MultipleAssign.AssignOperations>
-        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[strDatoConsulta]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">Pediatría</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[strNombreColumna]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">Especialidad</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-        </scg:List>
-      </ui:MultipleAssign.AssignOperations>
-    </ui:MultipleAssign>
-    <ui:DatabaseConnect DisplayName="Connect to Database" sap:VirtualizedContainerService.HintSize="483.2,92" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="Microsoft.Data.SqlClient" ConnectionString="Data Source=DESKTOP-ADIJIHQ\SQLEXPRESS;Initial Catalog=RoboticLand;Integrated Security=True;Encrypt=False" DatabaseConnection="[DBConnect]" />
+    <ui:DatabaseConnect DisplayName="Connect to Database" sap:VirtualizedContainerService.HintSize="483.2,92" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="Microsoft.Data.SqlClient" ConnectionString="Data Source=DESKTOP-ADIJIHQ\SQLEXPRESS;Initial Catalog=RoboticLand;Integrated Security=True;Encrypt=False" DatabaseConnection="[DBRobotLandConnect]" />
     <ui:DatabaseTransaction ContinueOnError="{x:Null}" DatabaseConnection="{x:Null}" ConnectionString="Data Source=DESKTOP-ADIJIHQ\SQLEXPRESS;Initial Catalog=RoboticLand;Integrated Security=True;Encrypt=False" DisplayName="Start Transaction" sap:VirtualizedContainerService.HintSize="483.2,352" sap2010:WorkflowViewState.IdRef="DatabaseTransaction_1" ProviderName="Microsoft.Data.SqlClient" UseTransaction="True">
       <ui:DatabaseTransaction.Body>
         <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,210.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -166,14 +122,14 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DataTable="[dtDataFound]" DisplayName="Run Query" ExistingDbConnection="[DBConnect]" sap:VirtualizedContainerService.HintSize="416,146.4" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="[&quot;Select *&#xD;&#xA;From dbo.ListaPacientes&#xD;&#xA;Where &quot;+strNombreColumna+&quot;='&quot;+strDatoConsulta+&quot;'&quot;]">
-            <ui:ExecuteQuery.Parameters>
+          <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Run Command" ExistingDbConnection="[DBRobotLandConnect]" sap:VirtualizedContainerService.HintSize="416,146.4" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_1" Sql="[String.Format(&quot;UPDATE dbo.ListaPacientes&#xD;&#xA;SET {0} = '{1}'&#xD;&#xA;WHERE DNI = '{2}';&quot;, strColumnToUpdate, strValueUpdate, strValueDNIUpdate)]">
+            <ui:ExecuteNonQuery.Parameters>
               <scg:Dictionary x:TypeArguments="x:String, Argument" />
-            </ui:ExecuteQuery.Parameters>
-          </ui:ExecuteQuery>
+            </ui:ExecuteNonQuery.Parameters>
+          </ui:ExecuteNonQuery>
         </Sequence>
       </ui:DatabaseTransaction.Body>
     </ui:DatabaseTransaction>
-    <ui:DatabaseDisconnect DatabaseConnection="[DBConnect]" DisplayName="Disconnect from Database" sap:VirtualizedContainerService.HintSize="483.2,48" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
+    <ui:DatabaseDisconnect DatabaseConnection="[DBRobotLandConnect]" DisplayName="Disconnect from Database" sap:VirtualizedContainerService.HintSize="483.2,48" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
   </Sequence>
 </Activity>

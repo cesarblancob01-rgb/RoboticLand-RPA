@@ -103,9 +103,11 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Linq.Parallel</AssemblyReference>
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SSMS_ContarFilas" sap:VirtualizedContainerService.HintSize="790.8000000000001,864" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SSMS_ContarFilas" sap:VirtualizedContainerService.HintSize="846.8000000000001,864" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:DatabaseConnection" Name="DBRoboticLandConnect" />
       <Variable x:TypeArguments="ui:DatabaseConnection" Name="DBTransaction_Count" />
