@@ -124,7 +124,7 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Citas" sap:VirtualizedContainerService.HintSize="1173.2,4186.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Citas" sap:VirtualizedContainerService.HintSize="794.8000000000001,4222.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtPacientes" />
       <Variable x:TypeArguments="scg:List(umm:Office365Message)" Name="mailsCitas" />
@@ -165,13 +165,13 @@
         </umamm:MailboxArgument>
       </umam:GetEmailListConnections.MailboxArg>
     </umam:GetEmailListConnections>
-    <ui:ForEach x:TypeArguments="umm:Office365Message" CurrentIndex="{x:Null}" DisplayName="For Each currentOffice365Message" sap:VirtualizedContainerService.HintSize="588.8,3879.2" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[mailsCitas]">
+    <ui:ForEach x:TypeArguments="umm:Office365Message" CurrentIndex="{x:Null}" DisplayName="For Each currentOffice365Message" sap:VirtualizedContainerService.HintSize="588.8,3915.2" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[mailsCitas]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="umm:Office365Message">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="umm:Office365Message" Name="currentOffice365Message" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="587.2,3757.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="587.2,3793.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="FromMessage" />
               <Variable x:TypeArguments="x:String" Name="mensaje" />
@@ -201,7 +201,7 @@
                 <InArgument x:TypeArguments="x:String">[currentOffice365Message.Body]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="553.6,242.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="553.6,246.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -239,9 +239,9 @@
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <If Condition="[Not String.IsNullOrWhiteSpace(strDNI) AndAlso&#xD;&#xA;Not String.IsNullOrWhiteSpace(strDia) AndAlso&#xD;&#xA;Not String.IsNullOrWhiteSpace(strMes) AndAlso&#xD;&#xA;Not String.IsNullOrWhiteSpace(strHora)]" DisplayName="If Mensaje vacío" sap:VirtualizedContainerService.HintSize="553.6,3094.4" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[Not String.IsNullOrWhiteSpace(strDNI) AndAlso&#xA;Not String.IsNullOrWhiteSpace(strDia) AndAlso&#xA;Not String.IsNullOrWhiteSpace(strMes) AndAlso&#xA;Not String.IsNullOrWhiteSpace(strHora)]" DisplayName="If Mensaje vacío" sap:VirtualizedContainerService.HintSize="553.6,3126.4" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="552,2940" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="552,2968" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="strExcelPath" />
                     <Variable x:TypeArguments="sd:DataTable" Name="dtPacientesFiltrado" />
@@ -281,7 +281,7 @@
                       </scg:List>
                     </ui:FilterDataTable.SelectColumns>
                   </ui:FilterDataTable>
-                  <Assign sap:VirtualizedContainerService.HintSize="518.4,174.4" sap2010:WorkflowViewState.IdRef="Assign_6">
+                  <Assign sap:VirtualizedContainerService.HintSize="518.4,178.4" sap2010:WorkflowViewState.IdRef="Assign_6">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Int32">[cantidad]</OutArgument>
                     </Assign.To>
@@ -289,9 +289,9 @@
                       <InArgument x:TypeArguments="x:Int32">[dtPacientesFiltrado.Rows.Count]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <If Condition="[cantidad =0]" sap:VirtualizedContainerService.HintSize="518.4,2200.8" sap2010:WorkflowViewState.IdRef="If_3">
+                  <If Condition="[cantidad =0]" sap:VirtualizedContainerService.HintSize="518.4,2224.8" sap2010:WorkflowViewState.IdRef="If_3">
                     <If.Then>
-                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="516.8,112" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="516.8,116" sap2010:WorkflowViewState.IdRef="Sequence_7">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="strNombre" />
                           <Variable x:TypeArguments="s:String[]" Name="DatosNuevoPaciente" />
@@ -454,7 +454,7 @@
                       </Sequence>
                     </If.Then>
                     <If.Else>
-                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="516.8,1959.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="516.8,1975.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="strExcelCitasPath" />
                           <Variable x:TypeArguments="sd:DataTable" Name="dtCitas" />
@@ -465,7 +465,7 @@
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Sequence DisplayName="Sequence Asignar Cita" sap:VirtualizedContainerService.HintSize="483.2,1899.2" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                        <Sequence DisplayName="Sequence Asignar Cita" sap:VirtualizedContainerService.HintSize="483.2,1911.2" sap2010:WorkflowViewState.IdRef="Sequence_9">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:String" Name="strTiempo" />
                             <Variable x:TypeArguments="x:String" Name="strSugerencia" />
@@ -528,7 +528,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:AddDataRow>
-                          <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[dtCitas]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="449.6,148" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Hoja1" WorkbookPath="[strExcelCitasPath]">
+                          <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[dtCitas]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="449.6,152" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Hoja1" WorkbookPath="[strExcelCitasPath]">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -536,7 +536,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:WriteRange>
-                          <Sequence DisplayName="Sequence El Tiempo" sap:VirtualizedContainerService.HintSize="449.6,268" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                          <Sequence DisplayName="Sequence El Tiempo" sap:VirtualizedContainerService.HintSize="449.6,276" sap2010:WorkflowViewState.IdRef="Sequence_11">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -551,7 +551,7 @@
                               </ui:InvokeWorkflowFile.Arguments>
                             </ui:InvokeWorkflowFile>
                           </Sequence>
-                          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box CONFIRMACIÓN" sap:VirtualizedContainerService.HintSize="449.6,126.4" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;ESTE VA A SER EL MENSAJE QUE VA A SER ENVIADO AL PACIENTE. CONFIRMACIÓN CITA&quot; + vbCrLf +&#xD;&#xA;&quot;Resumen de la Cita:&quot; + vbCrLf + &quot;---------------------&quot; + vbCrLf + &quot;Cita de &quot;+ strEspecialidad + &quot; En Hospital RoboticLand Albacete&quot; + vbCrLf + &quot; A Fecha de: &quot; + strDia + &quot; de &quot; + strMes + &quot;A las &quot; + strHora + vbCrLf + vbCrLf + &quot;Pronóstico: &quot; + strTiempo + vbCrLf + &quot;Recomendación: &quot; + strSugerencia]" />
+                          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box CONFIRMACIÓN" sap:VirtualizedContainerService.HintSize="449.6,126.4" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;ESTE VA A SER EL MENSAJE QUE VA A SER ENVIADO AL PACIENTE. CONFIRMACIÓN CITA&quot; + vbCrLf +&#xD;&#xA;&quot;Resumen de la Cita:&quot; + vbCrLf + &quot;---------------------&quot; + vbCrLf + &quot;Cita de &quot;+ strEspecialidad + &quot; En Hospital RoboticLand Albacete&quot; + vbCrLf + &quot; A Fecha de: &quot; + strDia + &quot; de &quot; + strMes + &quot;A las &quot; + strHora + vbCrLf + vbCrLf + &quot;Pronóstico: &quot; + strTiempo + vbCrLf + &quot;  &quot; + strSugerencia]" />
                           <umam:SendMailConnections ArgumentAttachmentPaths="{x:Null}" AttachmentList="{x:Null}" AttachmentPaths="{x:Null}" Attachments="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID2}" ReplyTo="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="Existing" AuthScopesInvalid="False" Body="[&quot;Resumen de la Cita:&quot; + vbCrLf + &quot;---------------------&quot; + vbCrLf + &quot;Cita de &quot;+ strEspecialidad + &quot; En Hospital RoboticLand Albacete&quot; + vbCrLf + &quot; A Fecha de: &quot; + strDia + &quot; de &quot; + strMes + &quot;A las &quot; + strHora + vbCrLf + vbCrLf + &quot;Pronóstico: &quot; + strTiempo + vbCrLf + &quot;Recomendación: &quot; + strSugerencia]" ConnectionId="73500a74-f50c-4406-94d2-bf9e30576610" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="449.6,434.4" sap2010:WorkflowViewState.IdRef="SendMailConnections_2" Importance="Normal" InputType="HTML" SaveAsDraft="False" Subject="Éxito en Agendar su cita." To="[New List(Of String) From {FromMessage}]" UseConnectionService="True" UseSharedMailbox="False">
                             <umam:SendMailConnections.AttachmentsBackup>
                               <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">

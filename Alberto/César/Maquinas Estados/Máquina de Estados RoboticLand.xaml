@@ -58,7 +58,7 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <StateMachine InitialState="{x:Reference __ReferenceID5}" DisplayName="Máquina_de_Estados_Correos" sap:VirtualizedContainerService.HintSize="800.8000000000001,444" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+  <StateMachine InitialState="{x:Reference __ReferenceID6}" DisplayName="Máquina_de_Estados_Correos" sap:VirtualizedContainerService.HintSize="800.8000000000001,402.4" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -70,7 +70,7 @@
     </sap:WorkflowViewStateService.ViewState>
     <State x:Name="__ReferenceID4" DisplayName="Filtrar Correos" sap:VirtualizedContainerService.HintSize="152,60" sap2010:WorkflowViewState.IdRef="State_2">
       <State.Entry>
-        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Filtrar Correos - Invoke Workflow File (Alberto\César\Procesos\Filtrar Correos.xaml)" sap:VirtualizedContainerService.HintSize="337.6,148.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Alberto\César\Procesos\Filtrar Correos.xaml">
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Filtrar Correos - Invoke Workflow File (Alberto\César\Procesos\Filtrar Correos.xaml)" sap:VirtualizedContainerService.HintSize="335.2,148.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Alberto\César\Procesos\Filtrar Correos.xaml">
           <ui:InvokeWorkflowFile.Arguments>
             <scg:Dictionary x:TypeArguments="x:String, Argument" />
           </ui:InvokeWorkflowFile.Arguments>
@@ -159,23 +159,52 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <State.Transitions>
-                                <Transition DisplayName="T4" sap2010:WorkflowViewState.IdRef="Transition_8">
+                                <Transition DisplayName="T6" sap2010:WorkflowViewState.IdRef="Transition_9">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <av:PointCollection x:Key="ConnectorLocation">389.8,610 389.8,680</av:PointCollection>
-                                      <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
-                                      <x:Int32 x:Key="DestConnectionPointIndex">38</x:Int32>
+                                      <av:PointCollection x:Key="ConnectorLocation">374.76000000000005,610 374.76000000000005,640 374.84000000000003,640 374.84000000000003,660</av:PointCollection>
+                                      <x:Int32 x:Key="SrcConnectionPointIndex">31</x:Int32>
+                                      <x:Int32 x:Key="DestConnectionPointIndex">30</x:Int32>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                   <Transition.To>
-                                    <State x:Name="__ReferenceID3" DisplayName="Final State" sap:VirtualizedContainerService.HintSize="149.6,60" sap2010:WorkflowViewState.IdRef="State_6" IsFinal="True">
+                                    <State x:Name="__ReferenceID5" DisplayName="Citas" sap:VirtualizedContainerService.HintSize="149.6,60" sap2010:WorkflowViewState.IdRef="State_8">
+                                      <State.Entry>
+                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Citas - Invoke Workflow File (Alberto\César\Procesos\Citas.xaml)" sap:VirtualizedContainerService.HintSize="337.6,148.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Alberto\César\Procesos\Citas.xaml">
+                                          <ui:InvokeWorkflowFile.Arguments>
+                                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                          </ui:InvokeWorkflowFile.Arguments>
+                                        </ui:InvokeWorkflowFile>
+                                      </State.Entry>
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <av:Point x:Key="ShapeLocation">315,680</av:Point>
+                                          <av:Point x:Key="ShapeLocation">315,660</av:Point>
                                           <av:Size x:Key="ShapeSize">149.6,60</av:Size>
                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
+                                      <State.Transitions>
+                                        <Transition DisplayName="T4" sap2010:WorkflowViewState.IdRef="Transition_10">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <av:PointCollection x:Key="ConnectorLocation">382.32,720 382.32,760</av:PointCollection>
+                                              <x:Int32 x:Key="SrcConnectionPointIndex">35</x:Int32>
+                                              <x:Int32 x:Key="DestConnectionPointIndex">34</x:Int32>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Transition.To>
+                                            <State x:Name="__ReferenceID3" DisplayName="Final State" sap:VirtualizedContainerService.HintSize="149.6,60" sap2010:WorkflowViewState.IdRef="State_6" IsFinal="True">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <av:Point x:Key="ShapeLocation">315,760</av:Point>
+                                                  <av:Size x:Key="ShapeSize">149.6,60</av:Size>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </State>
+                                          </Transition.To>
+                                        </Transition>
+                                      </State.Transitions>
                                     </State>
                                   </Transition.To>
                                 </Transition>
@@ -197,7 +226,7 @@
     <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID3</x:Reference>
-    <State x:Name="__ReferenceID5" DisplayName="Inicio" sap:VirtualizedContainerService.HintSize="149.6,60" sap2010:WorkflowViewState.IdRef="State_7">
+    <State x:Name="__ReferenceID6" DisplayName="Inicio" sap:VirtualizedContainerService.HintSize="149.6,60" sap2010:WorkflowViewState.IdRef="State_7">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">324.8,104.6</av:Point>
@@ -220,5 +249,6 @@
         </Transition>
       </State.Transitions>
     </State>
+    <x:Reference>__ReferenceID5</x:Reference>
   </StateMachine>
 </Activity>
