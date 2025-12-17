@@ -115,7 +115,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Borrar_correo_spam_1" sap:VirtualizedContainerService.HintSize="915.6,960" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Borrar_correo_spam_1" sap:VirtualizedContainerService.HintSize="806.8000000000001,969.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(umm:Office365Message)" Name="listaDeCorreoElectrónico">
         <sap:WorkflowViewStateService.ViewState>
@@ -131,7 +131,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="484.8,936.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="484.8,946.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Int32" Name="outcurrentemail" />
       </Sequence.Variables>
@@ -140,13 +140,12 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <umam:GetEmailListConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID0}" FreeTextFilter="{x:Null}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID1}" ManualEntryFolder="{x:Null}" QueryFilter="{x:Null}" AuthScopesInvalid="False" BodyAsHtml="False" BrowserFolder="Bandeja de entrada/Spam" BrowserFolderId="AQMkADAwATM3ZmYBLWE3OGItOWNjADctMDACLTAwCgAuAAADG4uqdcAYfEKJZ0Hj7xwmlQEAvbXfGcFUjk6QxnNsqJuDpgAAAmgCAAAA" ConnectionId="7cbee764-fb9e-46a7-986c-0f9fc98c0512" DisplayName="Obtener lista de correo electrónico" EmailList="[listaDeCorreoElectrónico]" FilterSelectionMode="ConditionBuilder" sap:VirtualizedContainerService.HintSize="451.2,283.2" sap2010:WorkflowViewState.IdRef="GetEmailListConnections_2" Importance="Any" IncludeSubfolders="False" MarkAsRead="False" MaxResults="100" OrderByDate="NewestFirst" SelectionMode="Browse" UnreadOnly="False" UseConnectionService="True" UseSharedMailbox="False" WithAttachmentsOnly="False">
+      <umam:GetEmailListConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID0}" FreeTextFilter="{x:Null}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID1}" ManualEntryFolder="{x:Null}" QueryFilter="{x:Null}" AuthScopesInvalid="False" BodyAsHtml="False" BrowserFolder="Bandeja de entrada/Spam" BrowserFolderId="AQMkADAwATM3ZmYBLWE3OGItOWNjADctMDACLTAwCgAuAAADG4uqdcAYfEKJZ0Hj7xwmlQEAvbXfGcFUjk6QxnNsqJuDpgAAAmgCAAAA" ConnectionId="7cbee764-fb9e-46a7-986c-0f9fc98c0512" DisplayName="Obtener lista de correo electrónico" EmailList="[listaDeCorreoElectrónico]" FilterSelectionMode="ConditionBuilder" sap:VirtualizedContainerService.HintSize="451.2,284" sap2010:WorkflowViewState.IdRef="GetEmailListConnections_2" Importance="Any" IncludeSubfolders="False" MarkAsRead="False" MaxResults="100" OrderByDate="NewestFirst" SelectionMode="Browse" UnreadOnly="False" UseConnectionService="True" UseSharedMailbox="False" WithAttachmentsOnly="False">
         <umam:GetEmailListConnections.Filter>
           <umamf:MailFilterCollection LogicalOperator="And">
             <umamf:MailFilterCollection.Filters>
+              <umamf:MailFilterElement DateValue="{x:Null}" Criteria="From" DateOperator="NewerThan" InStringValue="Maria Blanco Rodriguez" StringOperator="Contains" TypeOperator="Equals" TypeValue="Email" />
               <umamf:MailFilterElement DateValue="{x:Null}" Criteria="Body" DateOperator="NewerThan" InStringValue="Spam" StringOperator="Contains" TypeOperator="Equals" TypeValue="Email" />
-              <umamf:MailFilterElement InStringValue="{x:Null}" Criteria="Date" DateOperator="OlderThan" DateValue="12/31/2025 14:00:00" StringOperator="Contains" TypeOperator="Equals" TypeValue="Email" />
-              <umamf:MailFilterElement DateValue="{x:Null}" Criteria="Subject" DateOperator="NewerThan" InStringValue="Le ofrecemos" StringOperator="Contains" TypeOperator="Equals" TypeValue="Email" />
             </umamf:MailFilterCollection.Filters>
           </umamf:MailFilterCollection>
         </umam:GetEmailListConnections.Filter>
@@ -180,7 +179,7 @@
           </umamm:MailboxArgument>
         </umam:GetEmailListConnections.MailboxArg>
       </umam:GetEmailListConnections>
-      <umam:ForEachEmailConnections ConnectionAccountName="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID3}" FreeTextFilter="{x:Null}" Mailbox="{x:Null}" ManualEntryFolder="{x:Null}" QueryFilter="{x:Null}" AuthScopesInvalid="False" BodyAsHtml="False" BrowserFolder="Bandeja de entrada/Spam" BrowserFolderId="AQMkADAwATM3ZmYBLWE3OGItOWNjADctMDACLTAwCgAuAAADG4uqdcAYfEKJZ0Hj7xwmlQEAvbXfGcFUjk6QxnNsqJuDpgAAAmgCAAAA" ConnectionId="7cbee764-fb9e-46a7-986c-0f9fc98c0512" CurrentItemVariableName="CurrentEmail" DisplayName="Para cada correo electrónico" FilterSelectionMode="ConditionBuilder" sap:VirtualizedContainerService.HintSize="451.2,570.4" sap2010:WorkflowViewState.IdRef="ForEachEmailConnections_3" Importance="Any" IncludeSubfolders="False" Length="[outcurrentemail]" MarkAsRead="False" MaxResults="100" OrderByDate="NewestFirst" SelectionMode="Browse" UnreadOnly="False" UseConnectionService="True" UseSharedMailbox="False" WithAttachmentsOnly="False">
+      <umam:ForEachEmailConnections ConnectionAccountName="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID3}" FreeTextFilter="{x:Null}" Mailbox="{x:Null}" ManualEntryFolder="{x:Null}" QueryFilter="{x:Null}" AuthScopesInvalid="False" BodyAsHtml="False" BrowserFolder="Bandeja de entrada/Spam" BrowserFolderId="AQMkADAwATM3ZmYBLWE3OGItOWNjADctMDACLTAwCgAuAAADG4uqdcAYfEKJZ0Hj7xwmlQEAvbXfGcFUjk6QxnNsqJuDpgAAAmgCAAAA" ConnectionId="7cbee764-fb9e-46a7-986c-0f9fc98c0512" CurrentItemVariableName="CurrentEmail" DisplayName="Para cada correo electrónico" FilterSelectionMode="ConditionBuilder" sap:VirtualizedContainerService.HintSize="451.2,579.2" sap2010:WorkflowViewState.IdRef="ForEachEmailConnections_3" Importance="Any" IncludeSubfolders="False" Length="[outcurrentemail]" MarkAsRead="False" MaxResults="100" OrderByDate="NewestFirst" SelectionMode="Browse" UnreadOnly="False" UseConnectionService="True" UseSharedMailbox="False" WithAttachmentsOnly="False">
         <umam:ForEachEmailConnections.Body>
           <ActivityAction x:TypeArguments="umm:Office365Message, x:Int32">
             <ActivityAction.Argument1>
@@ -189,22 +188,21 @@
             <ActivityAction.Argument2>
               <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentEmailIndex" />
             </ActivityAction.Argument2>
-            <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="449.6,288" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="449.6,296" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <umam:DeleteEmailConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" AuthScopesInvalid="False" ConnectionId="7cbee764-fb9e-46a7-986c-0f9fc98c0512" DisplayName="Eliminar correo electrónico" Email="[CurrentEmail]" sap:VirtualizedContainerService.HintSize="416,228" sap2010:WorkflowViewState.IdRef="DeleteEmailConnections_2" PermanentlyDelete="True" UseConnectionService="True" />
+              <umam:DeleteEmailConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" AuthScopesInvalid="False" ConnectionId="7cbee764-fb9e-46a7-986c-0f9fc98c0512" DisplayName="Eliminar correo electrónico" Email="[CurrentEmail]" sap:VirtualizedContainerService.HintSize="416,232" sap2010:WorkflowViewState.IdRef="DeleteEmailConnections_2" PermanentlyDelete="True" UseConnectionService="True" />
             </Sequence>
           </ActivityAction>
         </umam:ForEachEmailConnections.Body>
         <umam:ForEachEmailConnections.Filter>
           <umamf:MailFilterCollection LogicalOperator="And">
             <umamf:MailFilterCollection.Filters>
-              <umamf:MailFilterElement DateValue="{x:Null}" Criteria="Subject" DateOperator="NewerThan" InStringValue="Spam" StringOperator="Contains" TypeOperator="Equals" TypeValue="Email" />
-              <umamf:MailFilterElement DateValue="{x:Null}" Criteria="CC" DateOperator="NewerThan" InStringValue="Spam" StringOperator="Contains" TypeOperator="Equals" TypeValue="Email" />
-              <umamf:MailFilterElement DateValue="{x:Null}" InStringValue="{x:Null}" Criteria="Attachment" DateOperator="NewerThan" StringOperator="Contains" TypeOperator="Equals" TypeValue="Email" />
+              <umamf:MailFilterElement DateValue="{x:Null}" Criteria="From" DateOperator="NewerThan" InStringValue="Maria Blanco Rodriguez" StringOperator="Contains" TypeOperator="Equals" TypeValue="Email" />
+              <umamf:MailFilterElement DateValue="{x:Null}" Criteria="Body" DateOperator="NewerThan" InStringValue="Spam" StringOperator="Contains" TypeOperator="Equals" TypeValue="Email" />
             </umamf:MailFilterCollection.Filters>
           </umamf:MailFilterCollection>
         </umam:ForEachEmailConnections.Filter>
