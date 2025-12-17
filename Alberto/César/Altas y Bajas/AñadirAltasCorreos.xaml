@@ -115,7 +115,7 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="AñadirAltasCorreos" sap:VirtualizedContainerService.HintSize="759.6,4444" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="AñadirAltasCorreos" sap:VirtualizedContainerService.HintSize="759.6,4779.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(umm:Office365Message)" Name="emailAltas" />
     </Sequence.Variables>
@@ -124,7 +124,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <umam:GetEmailListConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Filter="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID0}" FreeTextFilter="{x:Null}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID1}" ManualEntryFolder="{x:Null}" QueryFilter="{x:Null}" AuthScopesInvalid="False" BodyAsHtml="False" BrowserFolder="Bandeja de entrada/Altas" BrowserFolderId="AQMkADAwATM3ZmYBLWE3OGItOWNjADctMDACLTAwCgAuAAADG4uqdcAYfEKJZ0Hj7xwmlQEAvbXfGcFUjk6QxnNsqJuDpgAAAmgAAAE=" ConnectionId="73500a74-f50c-4406-94d2-bf9e30576610" DisplayName="Get Email List" EmailList="[emailAltas]" FilterSelectionMode="ConditionBuilder" sap:VirtualizedContainerService.HintSize="555.2,284" sap2010:WorkflowViewState.IdRef="GetEmailListConnections_1" Importance="Any" IncludeSubfolders="False" MarkAsRead="True" MaxResults="100" OrderByDate="NewestFirst" SelectionMode="Browse" UnreadOnly="True" UseConnectionService="True" UseSharedMailbox="False" WithAttachmentsOnly="False">
+    <umam:GetEmailListConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Filter="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID0}" FreeTextFilter="{x:Null}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID1}" ManualEntryFolder="{x:Null}" QueryFilter="{x:Null}" AuthScopesInvalid="False" BodyAsHtml="False" BrowserFolder="Bandeja de entrada/Altas" BrowserFolderId="AQMkADAwATM3ZmYBLWE3OGItOWNjADctMDACLTAwCgAuAAADG4uqdcAYfEKJZ0Hj7xwmlQEAvbXfGcFUjk6QxnNsqJuDpgAAAmgAAAE=" ConnectionId="73500a74-f50c-4406-94d2-bf9e30576610" DisplayName="Get Email List" EmailList="[emailAltas]" FilterSelectionMode="ConditionBuilder" sap:VirtualizedContainerService.HintSize="624,284" sap2010:WorkflowViewState.IdRef="GetEmailListConnections_1" Importance="Any" IncludeSubfolders="False" MarkAsRead="True" MaxResults="100" OrderByDate="NewestFirst" SelectionMode="Browse" UnreadOnly="True" UseConnectionService="True" UseSharedMailbox="False" WithAttachmentsOnly="False">
       <umam:GetEmailListConnections.FilterSelectionBackup>
         <usau:BackupSlot x:TypeArguments="umame:FilterMode" StoredValue="ConditionBuilder">
           <usau:BackupSlot.BackupValues>
@@ -155,13 +155,13 @@
         </umamm:MailboxArgument>
       </umam:GetEmailListConnections.MailboxArg>
     </umam:GetEmailListConnections>
-    <ui:ForEach x:TypeArguments="umm:Office365Message" CurrentIndex="{x:Null}" DisplayName="For Each currentOffice365Message" sap:VirtualizedContainerService.HintSize="555.2,4136.8" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[emailAltas]">
+    <ui:ForEach x:TypeArguments="umm:Office365Message" CurrentIndex="{x:Null}" DisplayName="For Each currentOffice365Message" sap:VirtualizedContainerService.HintSize="624,4472" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[emailAltas]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="umm:Office365Message">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="umm:Office365Message" Name="currentOffice365Message" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="553.6,4015.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="622.4,4350.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="mensaje" />
               <Variable x:TypeArguments="x:String" Name="strDNI" />
@@ -179,7 +179,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="520,178.4" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign sap:VirtualizedContainerService.HintSize="588.8,178.4" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[FromMessage]</OutArgument>
               </Assign.To>
@@ -187,7 +187,7 @@
                 <InArgument x:TypeArguments="x:String">[currentOffice365Message.FromAddress]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign mensaje completo" sap:VirtualizedContainerService.HintSize="520,178.4" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign DisplayName="Assign mensaje completo" sap:VirtualizedContainerService.HintSize="588.8,178.4" sap2010:WorkflowViewState.IdRef="Assign_2">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[mensaje]</OutArgument>
               </Assign.To>
@@ -195,7 +195,7 @@
                 <InArgument x:TypeArguments="x:String">[currentOffice365Message.Body]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="520,371.2" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="588.8,371.2" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -265,16 +265,16 @@
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="520,126.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Los datos extraídos del mensaje son estos: &quot; +&#xA;&quot;DNI: &quot; + strDNI + vbCrLf +&#xA;&quot;Nombre: &quot; + strNombre +vbCrLf +&#xA;&quot;Sexo: &quot; + strSexo +  vbCrLf+ &#xA;&quot;Edad: &quot; + strEdad + vbCrLf+&#xA;&quot;Teléfono: &quot; + strTelefono +vbCrLf+&#xA;&quot;Correo: &quot; + strCorreo + vbCrLf+&#xA;&quot;Dirección: &quot; + strDireccion + vbCrLf+&#xA;&quot;Especialidad: &quot; + strEspecialidad]" />
-            <If Condition="[Not String.IsNullOrWhiteSpace(strDNI) AndAlso&#xA;Not String.IsNullOrWhiteSpace(strNombre) AndAlso&#xA;Not String.IsNullOrWhiteSpace(strSexo) AndAlso&#xA;Not String.IsNullOrWhiteSpace(strEdad) AndAlso&#xA;Not String.IsNullOrWhiteSpace(strTelefono) AndAlso&#xA;Not String.IsNullOrWhiteSpace(strCorreo) AndAlso&#xA;Not String.IsNullOrWhiteSpace(strDireccion) AndAlso&#xA;Not String.IsNullOrWhiteSpace(strEspecialidad)]" DisplayName="If Están TODOS los datos en el mensaje" sap:VirtualizedContainerService.HintSize="520,3096.8" sap2010:WorkflowViewState.IdRef="If_1">
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="588.8,126.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Los datos extraídos del mensaje son estos: &quot; +&#xA;&quot;DNI: &quot; + strDNI + vbCrLf +&#xA;&quot;Nombre: &quot; + strNombre +vbCrLf +&#xA;&quot;Sexo: &quot; + strSexo +  vbCrLf+ &#xA;&quot;Edad: &quot; + strEdad + vbCrLf+&#xA;&quot;Teléfono: &quot; + strTelefono +vbCrLf+&#xA;&quot;Correo: &quot; + strCorreo + vbCrLf+&#xA;&quot;Dirección: &quot; + strDireccion + vbCrLf+&#xA;&quot;Especialidad: &quot; + strEspecialidad]" />
+            <If Condition="[Not String.IsNullOrWhiteSpace(strDNI) AndAlso&#xA;Not String.IsNullOrWhiteSpace(strNombre) AndAlso&#xA;Not String.IsNullOrWhiteSpace(strSexo) AndAlso&#xA;Not String.IsNullOrWhiteSpace(strEdad) AndAlso&#xA;Not String.IsNullOrWhiteSpace(strTelefono) AndAlso&#xA;Not String.IsNullOrWhiteSpace(strCorreo) AndAlso&#xA;Not String.IsNullOrWhiteSpace(strDireccion) AndAlso&#xA;Not String.IsNullOrWhiteSpace(strEspecialidad)]" DisplayName="If Están TODOS los datos en el mensaje" sap:VirtualizedContainerService.HintSize="588.8,3432" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="518.4,2246.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="587.2,2412" sap2010:WorkflowViewState.IdRef="Sequence_7">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Sequence Meter datos a Excel" sap:VirtualizedContainerService.HintSize="484.8,2182.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="Sequence Meter datos a Excel" sap:VirtualizedContainerService.HintSize="553.6,2348" sap2010:WorkflowViewState.IdRef="Sequence_3">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="strExcelPath" />
                       <Variable x:TypeArguments="sd:DataTable" Name="dtPacientesFiltrado" />
@@ -286,16 +286,16 @@
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign DisplayName="Assign Path a Excel" sap:VirtualizedContainerService.HintSize="451.2,178.4" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign DisplayName="Assign Path a Excel" sap:VirtualizedContainerService.HintSize="520,178.4" sap2010:WorkflowViewState.IdRef="Assign_3">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[strExcelPath]</OutArgument>
                       </Assign.To>
                       <Assign.Value>
-                        <InArgument x:TypeArguments="x:String">["C:\Users\Usuario\Documents\Curso RPA\Práctica\ProyectosUIPATH\RoboticLand_Prueba1\Archivos\Pacientes_Datos.xlsx"]</InArgument>
+                        <InArgument x:TypeArguments="x:String">["C:\Users\Usuario\Documents\Curso RPA\Proyecto Final\Archivos RoboticLand\Paciente_Datos.xlsx"]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[out_dtPacientes]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="451.2,124" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Sheet1" WorkbookPath="[strExcelPath]" />
-                    <ui:FilterDataTable DataTable="[out_dtPacientes]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="451.2,198.4" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dtPacientesFiltrado]" SelectColumnsMode="Remove">
+                    <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[out_dtPacientes]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="520,124" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Pacientes_Registrados" WorkbookPath="[strExcelPath]" />
+                    <ui:FilterDataTable DataTable="[out_dtPacientes]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="520,198.4" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dtPacientesFiltrado]" SelectColumnsMode="Remove">
                       <ui:FilterDataTable.Filters>
                         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                           <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
@@ -314,7 +314,7 @@
                         </scg:List>
                       </ui:FilterDataTable.SelectColumns>
                     </ui:FilterDataTable>
-                    <Assign sap:VirtualizedContainerService.HintSize="451.2,178.4" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign sap:VirtualizedContainerService.HintSize="520,178.4" sap2010:WorkflowViewState.IdRef="Assign_4">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Int32">[cantidad]</OutArgument>
                       </Assign.To>
@@ -322,48 +322,59 @@
                         <InArgument x:TypeArguments="x:Int32">[dtPacientesFiltrado.Rows.Count]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <If Condition="[cantidad = 0]" DisplayName="If No Está dentro de la BBDD" sap:VirtualizedContainerService.HintSize="451.2,1412" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If Condition="[cantidad = 0]" DisplayName="If No Está dentro de la BBDD" sap:VirtualizedContainerService.HintSize="520,1577.6" sap2010:WorkflowViewState.IdRef="If_2">
                       <If.Then>
-                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,1096.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="518.4,1262.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Alta&quot;,strDNI,strNombre, strSexo, strEdad, strTelefono, strCorreo, strDireccion, strEspecialidad }]" DataTable="[out_dtPacientes]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-                          <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[out_dtPacientes]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="416,152" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" WorkbookPath="[strExcelPath]" />
-                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,122.4" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;El paciente con DNI: &quot; + strDNI + &quot; y con el nombre de &quot; + strNombre + &quot;. Ha sido añadido a la Base de Datos&quot;]" />
-                          <umam:SendMailConnections ArgumentAttachmentPaths="{x:Null}" AttachmentList="{x:Null}" ConnectionAccountName="{x:Null}" MailboxBackup="{x:Reference __ReferenceID2}" AttachmentInputMode="Existing" AttachmentPaths="{x:Null}" Attachments="{x:Null}" AuthScopesInvalid="False" Bcc="{x:Null}" Body="[&quot;Bienvenido/a &quot; + strNombre + &quot; a RoboticLand Hospital. Esperemos que nuestros servicios sean de su gusto.&quot;]" Cc="{x:Null}" ConnectionId="73500a74-f50c-4406-94d2-bf9e30576610" ContinueOnError="{x:Null}" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="416,534.4" sap2010:WorkflowViewState.IdRef="SendMailConnections_1" Importance="Normal" InputType="HTML" Mailbox="{x:Null}" ReplyTo="{x:Null}" SaveAsDraft="False" SingleAttachment="{x:Null}" Subject="Alta a RoboticLand Hospital. Bienvenido." TextBody="{x:Null}" To="[New List(Of String) From {FromMessage}]" UseConnectionService="True" UseSharedMailbox="False">
-                            <umam:SendMailConnections.AttachmentsBackup>
-                              <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
-                                <usau:BackupSlot.BackupValues>
-                                  <scg:Dictionary x:TypeArguments="umame:AttachmentInputMode, scg:List(x:Object)" />
-                                </usau:BackupSlot.BackupValues>
-                              </usau:BackupSlot>
-                            </umam:SendMailConnections.AttachmentsBackup>
-                            <umam:SendMailConnections.InputTypeBackup>
-                              <usau:BackupSlot x:TypeArguments="umame:BodyInputType" StoredValue="HTML">
-                                <usau:BackupSlot.BackupValues>
-                                  <scg:Dictionary x:TypeArguments="umame:BodyInputType, scg:List(x:Object)" />
-                                </usau:BackupSlot.BackupValues>
-                              </usau:BackupSlot>
-                            </umam:SendMailConnections.InputTypeBackup>
-                            <umam:SendMailConnections.MailboxArg>
-                              <umamm:MailboxArgument SharedMailbox="{x:Null}" UseSharedMailbox="False">
-                                <umamm:MailboxArgument.Backup>
-                                  <usau:BackupSlot x:TypeArguments="umame:MailboxSelectionMode" x:Name="__ReferenceID2" StoredValue="NoMailbox">
-                                    <usau:BackupSlot.BackupValues>
-                                      <scg:Dictionary x:TypeArguments="umame:MailboxSelectionMode, scg:List(x:Object)" />
-                                    </usau:BackupSlot.BackupValues>
-                                  </usau:BackupSlot>
-                                </umamm:MailboxArgument.Backup>
-                              </umamm:MailboxArgument>
-                            </umam:SendMailConnections.MailboxArg>
-                          </umam:SendMailConnections>
+                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Alta&quot;,strDNI,strNombre, strSexo, strEdad, strTelefono, strCorreo, strDireccion, strEspecialidad }]" DataTable="[out_dtPacientes]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="484.8,224" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                          <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[out_dtPacientes]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="484.8,152" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Pacientes_Registrados" WorkbookPath="[strExcelPath]" />
+                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484.8,126.4" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;El paciente con DNI: &quot; + strDNI + &quot; y con el nombre de &quot; + strNombre + &quot;. Ha sido añadido a la Base de Datos&quot;]" />
+                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484.8,696" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                            <ui:CommentOut.Body>
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,590.4" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <umam:SendMailConnections ArgumentAttachmentPaths="{x:Null}" AttachmentList="{x:Null}" AttachmentPaths="{x:Null}" Attachments="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID2}" ReplyTo="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="Existing" AuthScopesInvalid="False" Body="[&quot;Bienvenido/a &quot; + strNombre + &quot; a RoboticLand Hospital. Esperemos que nuestros servicios sean de su gusto.&quot;]" ConnectionId="73500a74-f50c-4406-94d2-bf9e30576610" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="416,530.4" sap2010:WorkflowViewState.IdRef="SendMailConnections_1" Importance="Normal" InputType="HTML" SaveAsDraft="False" Subject="Alta a RoboticLand Hospital. Bienvenido." To="[New List(Of String) From {FromMessage}]" UseConnectionService="True" UseSharedMailbox="False">
+                                  <umam:SendMailConnections.AttachmentsBackup>
+                                    <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
+                                      <usau:BackupSlot.BackupValues>
+                                        <scg:Dictionary x:TypeArguments="umame:AttachmentInputMode, scg:List(x:Object)" />
+                                      </usau:BackupSlot.BackupValues>
+                                    </usau:BackupSlot>
+                                  </umam:SendMailConnections.AttachmentsBackup>
+                                  <umam:SendMailConnections.InputTypeBackup>
+                                    <usau:BackupSlot x:TypeArguments="umame:BodyInputType" StoredValue="HTML">
+                                      <usau:BackupSlot.BackupValues>
+                                        <scg:Dictionary x:TypeArguments="umame:BodyInputType, scg:List(x:Object)" />
+                                      </usau:BackupSlot.BackupValues>
+                                    </usau:BackupSlot>
+                                  </umam:SendMailConnections.InputTypeBackup>
+                                  <umam:SendMailConnections.MailboxArg>
+                                    <umamm:MailboxArgument SharedMailbox="{x:Null}" UseSharedMailbox="False">
+                                      <umamm:MailboxArgument.Backup>
+                                        <usau:BackupSlot x:TypeArguments="umame:MailboxSelectionMode" x:Name="__ReferenceID2" StoredValue="NoMailbox">
+                                          <usau:BackupSlot.BackupValues>
+                                            <scg:Dictionary x:TypeArguments="umame:MailboxSelectionMode, scg:List(x:Object)" />
+                                          </usau:BackupSlot.BackupValues>
+                                        </usau:BackupSlot>
+                                      </umamm:MailboxArgument.Backup>
+                                    </umamm:MailboxArgument>
+                                  </umam:SendMailConnections.MailboxArg>
+                                </umam:SendMailConnections>
+                              </Sequence>
+                            </ui:CommentOut.Body>
+                          </ui:CommentOut>
                         </Sequence>
                       </If.Then>
                       <If.Else>
-                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,181.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="518.4,181.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -377,40 +388,51 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="518.4,716.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="587.2,886.4" sap2010:WorkflowViewState.IdRef="Sequence_9">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484.8,122.4" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="Faltan datos en el correo y no será añadido a la BBDD." />
-                  <umam:SendMailConnections ArgumentAttachmentPaths="{x:Null}" AttachmentList="{x:Null}" ConnectionAccountName="{x:Null}" MailboxBackup="{x:Reference __ReferenceID3}" AttachmentInputMode="Existing" AttachmentPaths="{x:Null}" Attachments="{x:Null}" AuthScopesInvalid="False" Bcc="{x:Null}" Body="[string.Format(&quot;&lt;P&gt;&lt;SPAN&gt;Por desgracia no se ha podido procesar su alta en RoboticLand Hospital. Compruebe que ha introducido todos sus datos correctamente. Y si no contacte a Soporte.&lt;/SPAN&gt;&lt;/P&gt;&quot;)]" Cc="{x:Null}" ConnectionId="73500a74-f50c-4406-94d2-bf9e30576610" ContinueOnError="{x:Null}" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="484.8,534.4" sap2010:WorkflowViewState.IdRef="SendMailConnections_2" Importance="Normal" InputType="HTML" Mailbox="{x:Null}" ReplyTo="{x:Null}" SaveAsDraft="False" SingleAttachment="{x:Null}" Subject="Error en alta a RoboticLand Hospital." TextBody="{x:Null}" To="[New List(Of String) From {FromMessage}]" UseConnectionService="True" UseSharedMailbox="False">
-                    <umam:SendMailConnections.AttachmentsBackup>
-                      <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
-                        <usau:BackupSlot.BackupValues>
-                          <scg:Dictionary x:TypeArguments="umame:AttachmentInputMode, scg:List(x:Object)" />
-                        </usau:BackupSlot.BackupValues>
-                      </usau:BackupSlot>
-                    </umam:SendMailConnections.AttachmentsBackup>
-                    <umam:SendMailConnections.InputTypeBackup>
-                      <usau:BackupSlot x:TypeArguments="umame:BodyInputType" StoredValue="HTML">
-                        <usau:BackupSlot.BackupValues>
-                          <scg:Dictionary x:TypeArguments="umame:BodyInputType, scg:List(x:Object)" />
-                        </usau:BackupSlot.BackupValues>
-                      </usau:BackupSlot>
-                    </umam:SendMailConnections.InputTypeBackup>
-                    <umam:SendMailConnections.MailboxArg>
-                      <umamm:MailboxArgument SharedMailbox="{x:Null}" UseSharedMailbox="False">
-                        <umamm:MailboxArgument.Backup>
-                          <usau:BackupSlot x:TypeArguments="umame:MailboxSelectionMode" x:Name="__ReferenceID3" StoredValue="NoMailbox">
-                            <usau:BackupSlot.BackupValues>
-                              <scg:Dictionary x:TypeArguments="umame:MailboxSelectionMode, scg:List(x:Object)" />
-                            </usau:BackupSlot.BackupValues>
-                          </usau:BackupSlot>
-                        </umamm:MailboxArgument.Backup>
-                      </umamm:MailboxArgument>
-                    </umam:SendMailConnections.MailboxArg>
-                  </umam:SendMailConnections>
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="553.6,126.4" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="Faltan datos en el correo y no será añadido a la BBDD." />
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="553.6,696" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,590.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <umam:SendMailConnections ArgumentAttachmentPaths="{x:Null}" AttachmentList="{x:Null}" AttachmentPaths="{x:Null}" Attachments="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Mailbox="{x:Null}" MailboxBackup="{x:Reference __ReferenceID3}" ReplyTo="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="Existing" AuthScopesInvalid="False" Body="[string.Format(&quot;&lt;P&gt;&lt;SPAN&gt;Por desgracia no se ha podido procesar su alta en RoboticLand Hospital. Compruebe que ha introducido todos sus datos correctamente. Y si no contacte a Soporte.&lt;/SPAN&gt;&lt;/P&gt;&quot;)]" ConnectionId="73500a74-f50c-4406-94d2-bf9e30576610" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="416,530.4" sap2010:WorkflowViewState.IdRef="SendMailConnections_2" Importance="Normal" InputType="HTML" SaveAsDraft="False" Subject="Error en alta a RoboticLand Hospital." To="[New List(Of String) From {FromMessage}]" UseConnectionService="True" UseSharedMailbox="False">
+                          <umam:SendMailConnections.AttachmentsBackup>
+                            <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
+                              <usau:BackupSlot.BackupValues>
+                                <scg:Dictionary x:TypeArguments="umame:AttachmentInputMode, scg:List(x:Object)" />
+                              </usau:BackupSlot.BackupValues>
+                            </usau:BackupSlot>
+                          </umam:SendMailConnections.AttachmentsBackup>
+                          <umam:SendMailConnections.InputTypeBackup>
+                            <usau:BackupSlot x:TypeArguments="umame:BodyInputType" StoredValue="HTML">
+                              <usau:BackupSlot.BackupValues>
+                                <scg:Dictionary x:TypeArguments="umame:BodyInputType, scg:List(x:Object)" />
+                              </usau:BackupSlot.BackupValues>
+                            </usau:BackupSlot>
+                          </umam:SendMailConnections.InputTypeBackup>
+                          <umam:SendMailConnections.MailboxArg>
+                            <umamm:MailboxArgument SharedMailbox="{x:Null}" UseSharedMailbox="False">
+                              <umamm:MailboxArgument.Backup>
+                                <usau:BackupSlot x:TypeArguments="umame:MailboxSelectionMode" x:Name="__ReferenceID3" StoredValue="NoMailbox">
+                                  <usau:BackupSlot.BackupValues>
+                                    <scg:Dictionary x:TypeArguments="umame:MailboxSelectionMode, scg:List(x:Object)" />
+                                  </usau:BackupSlot.BackupValues>
+                                </usau:BackupSlot>
+                              </umamm:MailboxArgument.Backup>
+                            </umamm:MailboxArgument>
+                          </umam:SendMailConnections.MailboxArg>
+                        </umam:SendMailConnections>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                  </ui:CommentOut>
                 </Sequence>
               </If.Else>
             </If>

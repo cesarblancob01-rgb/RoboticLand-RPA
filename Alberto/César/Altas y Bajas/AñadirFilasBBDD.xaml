@@ -92,7 +92,7 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ConectarBBDD" sap:VirtualizedContainerService.HintSize="759.6,1391.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ConectarBBDD" sap:VirtualizedContainerService.HintSize="759.6,1403.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:DatabaseConnection" Name="ConnectDB" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtPacientes" />
@@ -102,7 +102,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:DatabaseConnect DisplayName="Connect to Database" sap:VirtualizedContainerService.HintSize="518.4,92" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="Microsoft.Data.SqlClient" ConnectionString="Data Source=LAPTOP-QSHP1S0C\SQLEXPRESS;Initial Catalog=RoboticPrueba;Integrated Security=True;Encrypt=False" DatabaseConnection="[ConnectDB]">
+    <ui:DatabaseConnect DisplayName="Connect to Database" sap:VirtualizedContainerService.HintSize="518.4,92" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="Microsoft.Data.SqlClient" ConnectionString="Data Source=LAPTOP-QSHP1S0C\SQLEXPRESS;Initial Catalog=RoboticLand;Integrated Security=True;Encrypt=False" DatabaseConnection="[ConnectDB]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -110,15 +110,15 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:DatabaseConnect>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LeerExcel - Invoke Workflow File (Procesos\LeerExcel.xaml)" sap:VirtualizedContainerService.HintSize="518.4,180.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Procesos\Altas y Bajas\LeerExcel.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LeerExcel - Invoke Workflow File (Alberto\César\Altas y Bajas\LeerExcel.xaml)" sap:VirtualizedContainerService.HintSize="518.4,180.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Alberto\César\Altas y Bajas\LeerExcel.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtPacientes">[dtPacientes]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="518.4,122.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" />
-    <ui:DatabaseTransaction ContinueOnError="{x:Null}" DatabaseConnection="{x:Null}" ConnectionString="Data Source=LAPTOP-QSHP1S0C\SQLEXPRESS;Initial Catalog=RoboticPrueba;Integrated Security=True;Encrypt=False" DisplayName="Start Transaction" sap:VirtualizedContainerService.HintSize="518.4,972.8" sap2010:WorkflowViewState.IdRef="DatabaseTransaction_1" ProviderName="Microsoft.Data.SqlClient" UseTransaction="True">
+    <ui:DatabaseTransaction ContinueOnError="{x:Null}" DatabaseConnection="{x:Null}" ConnectionString="Data Source=LAPTOP-QSHP1S0C\SQLEXPRESS;Initial Catalog=RoboticPrueba;Integrated Security=True;Encrypt=False" DisplayName="Start Transaction" sap:VirtualizedContainerService.HintSize="518.4,984.8" sap2010:WorkflowViewState.IdRef="DatabaseTransaction_1" ProviderName="Microsoft.Data.SqlClient" UseTransaction="True">
       <ui:DatabaseTransaction.Body>
-        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484.8,840" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484.8,852" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="dtExistingDNI" />
           </Sequence.Variables>
@@ -127,18 +127,18 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DataTable="[dtExistingDNI]" DisplayName="Run Query" ExistingDbConnection="[ConnectDB]" sap:VirtualizedContainerService.HintSize="451.2,151.2" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="SELECT DNI FROM dbo.Pacientes">
+          <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DataTable="[dtExistingDNI]" DisplayName="Run Query" ExistingDbConnection="[ConnectDB]" sap:VirtualizedContainerService.HintSize="451.2,155.2" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="SELECT DNI FROM dbo.ListaPacientes">
             <ui:ExecuteQuery.Parameters>
               <scg:Dictionary x:TypeArguments="x:String, Argument" />
             </ui:ExecuteQuery.Parameters>
           </ui:ExecuteQuery>
-          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtExistingDNI]" DisplayName="For Each Row Duplicados" sap:VirtualizedContainerService.HintSize="451.2,435.2" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtExistingDNI]" DisplayName="For Each Row Duplicados" sap:VirtualizedContainerService.HintSize="451.2,439.2" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
             <ui:ForEachRow.Body>
               <ActivityAction x:TypeArguments="sd:DataRow">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,249.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,253.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -167,7 +167,7 @@
               </ActivityAction>
             </ui:ForEachRow.Body>
           </ui:ForEachRow>
-          <ui:BulkInsert AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" DataTable="[dtPacientes]" DisplayName="Bulk Insert" ExistingDbConnection="[ConnectDB]" sap:VirtualizedContainerService.HintSize="451.2,193.6" sap2010:WorkflowViewState.IdRef="BulkInsert_1" TableName="dbo.Pacientes" />
+          <ui:BulkInsert AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" DataTable="[dtPacientes]" DisplayName="Bulk Insert" ExistingDbConnection="[ConnectDB]" sap:VirtualizedContainerService.HintSize="451.2,193.6" sap2010:WorkflowViewState.IdRef="BulkInsert_1" TableName="dbo.ListaPacientes" />
         </Sequence>
       </ui:DatabaseTransaction.Body>
     </ui:DatabaseTransaction>
