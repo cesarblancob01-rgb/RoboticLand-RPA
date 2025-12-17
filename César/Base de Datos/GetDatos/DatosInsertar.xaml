@@ -124,7 +124,7 @@
       <AssemblyReference>Studio.Generated.TypedDataTable5</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DatosSheet" sap:VirtualizedContainerService.HintSize="845.2,2374.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DatosSheet" sap:VirtualizedContainerService.HintSize="842.8000000000001,528" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strTablaInsertar" />
     </Sequence.Variables>
@@ -133,7 +133,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uga:ReadRangeConnections x:TypeArguments="sd1:DataTable5" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" RangeInformation="{x:Null}" Spreadsheet="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="Paciente_Datos" BrowserItemId="https://docs.google.com/spreadsheets/d/1nAY7rcGWhaXe64i57bmTFfVYaBCqZMMfuJitzT3kIuo/edit?usp=drivesdk" ConnectionId="05f37f42-8b94-48ae-980e-6387ad977ce1" DisplayName="Read Range" HasHeaders="True" sap:VirtualizedContainerService.HintSize="553.6,295.2" sap2010:WorkflowViewState.IdRef="ReadRangeConnections`1_1" ItemSelectionMode="Browse" Range="'Modificar'" ReadAs="[UiPath.GSuite.Sheets.Enums.ValuesType.Text]" Result="[dtTablaInsertar]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False">
+    <uga:ReadRangeConnections x:TypeArguments="sd1:DataTable5" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" RangeInformation="{x:Null}" Spreadsheet="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="Paciente_Datos" BrowserItemId="https://docs.google.com/spreadsheets/d/1nAY7rcGWhaXe64i57bmTFfVYaBCqZMMfuJitzT3kIuo/edit?usp=drivesdk" ConnectionId="05f37f42-8b94-48ae-980e-6387ad977ce1" DisplayName="Read Range" HasHeaders="True" sap:VirtualizedContainerService.HintSize="518.4,295.2" sap2010:WorkflowViewState.IdRef="ReadRangeConnections`1_1" ItemSelectionMode="Browse" Range="'Modificar'" ReadAs="[UiPath.GSuite.Sheets.Enums.ValuesType.Text]" Result="[dtTablaInsertar]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False">
       <uga:ReadRangeConnections.ColumnNames>
         <x:Array Type="x:String">
           <x:String>DNI Paciente</x:String>
@@ -173,18 +173,18 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uga:ReadRangeConnections>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="553.6,2056" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="518.4,209.6" sap2010:WorkflowViewState.IdRef="CommentOut_6">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="518.4,1954.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="483.2,108" sap2010:WorkflowViewState.IdRef="Sequence_11">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Secuencia Leer los Datos Sheet" sap:VirtualizedContainerService.HintSize="484.8,1894.4" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence DisplayName="Secuencia Leer los Datos Sheet" sap:VirtualizedContainerService.HintSize="449.6,48" sap2010:WorkflowViewState.IdRef="Sequence_10">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
