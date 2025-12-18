@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SSMS_ConsultasDinamicas" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="SSMS_ConsultasDinamicas_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=Studio.Generated.TypedDataTable11" xmlns:sd1="clr-namespace:System.Data;assembly=Studio.Generated.TypedDataRow12" xmlns:sd2="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugam="clr-namespace:UiPath.GSuite.Activities.Models;assembly=UiPath.GSuite.Activities" xmlns:ugsm="clr-namespace:UiPath.GSuite.Sheets.Models;assembly=UiPath.GSuite" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SSMS_ConsultasDinamicas" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="SSMS_ConsultasDinamicas_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:sd1="clr-namespace:System.Data;assembly=Studio.Generated.TypedDataTable11" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -45,6 +45,9 @@
       <x:String>System.Security</x:String>
       <x:String>UiPath.Database</x:String>
       <x:String>UiPath.Database.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -116,197 +119,130 @@
       <AssemblyReference>Studio.Generated.TypedDataRow12</AssemblyReference>
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
       <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable13</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SSMS_ConsultasDinamicas" sap:VirtualizedContainerService.HintSize="845.2,2402.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SSMS_ConsultasDinamicas" sap:VirtualizedContainerService.HintSize="845.2,1693.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strTablaConsulta" />
-      <Variable x:TypeArguments="sd:DataTable11" Name="dtTablaConsulta" />
+      <Variable x:TypeArguments="sd1:DataTable11" Name="dtTablaConsulta" />
       <Variable x:TypeArguments="x:String" Name="strFROMTabla" />
+      <Variable x:TypeArguments="x:String" Name="strExcelUpdateRuta" />
+      <Variable x:TypeArguments="x:String" Name="strNombreHoja" />
+      <Variable x:TypeArguments="x:String" Name="strFilaAcumulada" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtTablaUpdate" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Secuencia Leer y Asignar Datos" sap:VirtualizedContainerService.HintSize="585.6,1642.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="516.8,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strExcelUpdateRuta]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">["Alberto\HojasCalculos\DatosPacientes.xlsx"]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strNombreHoja]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">Modificar_Pacientes</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <Sequence DisplayName="Secuencia Leer y Asignar Datos" sap:VirtualizedContainerService.HintSize="516.8,915.2" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uga:ReadRangeConnections x:TypeArguments="sd:DataTable11" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" RangeInformation="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="Paciente_Datos" BrowserItemId="https://docs.google.com/spreadsheets/d/1nAY7rcGWhaXe64i57bmTFfVYaBCqZMMfuJitzT3kIuo/edit?usp=drivesdk" ConnectionId="05f37f42-8b94-48ae-980e-6387ad977ce1" DisplayName="Read Range" HasHeaders="True" sap:VirtualizedContainerService.HintSize="547.2,295.2" sap2010:WorkflowViewState.IdRef="ReadRangeConnections`1_2" ItemSelectionMode="Browse" Range="Consulta Dinamica" ReadAs="Values" Result="[dtTablaConsulta]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False">
-        <uga:ReadRangeConnections.ColumnNames>
-          <x:Array Type="x:String">
-            <x:String>Tabla Consulta</x:String>
-            <x:String>Columnas</x:String>
-            <x:String>Columna Consulta</x:String>
-            <x:String>Dato Consulta</x:String>
-          </x:Array>
-        </uga:ReadRangeConnections.ColumnNames>
-        <uga:ReadRangeConnections.FileIdBackup>
-          <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" x:Name="__ReferenceID0" StoredValue="Browse">
-            <usau:BackupSlot.BackupValues>
-              <scg:Dictionary x:TypeArguments="ugade:EDriveItemMode, scg:List(x:Object)" />
-            </usau:BackupSlot.BackupValues>
-          </usau:BackupSlot>
-        </uga:ReadRangeConnections.FileIdBackup>
-        <uga:ReadRangeConnections.Item>
-          <ugam:DriveItemArgument Backup="{x:Reference __ReferenceID0}" ConnectionDescriptor="{x:Null}" ConnectionKey="{x:Null}" Existing="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" BrowserId="https://docs.google.com/spreadsheets/d/1nAY7rcGWhaXe64i57bmTFfVYaBCqZMMfuJitzT3kIuo/edit?usp=drivesdk" FriendlyName="Paciente_Datos" FullPathHint="My Drive/Proyecto RPA/Paciente_Datos" InputMode="Browse">
-            <ugam:DriveItemArgument.ParentIdFullPathHint>
-              <InArgument x:TypeArguments="x:String">
-                <Literal x:TypeArguments="x:String" Value="" />
-              </InArgument>
-            </ugam:DriveItemArgument.ParentIdFullPathHint>
-          </ugam:DriveItemArgument>
-        </uga:ReadRangeConnections.Item>
-        <uga:ReadRangeConnections.RangeMetadata>
-          <ugsm:RangeMetadataSlim ColumnStart="1" RangeType="Range" />
-        </uga:ReadRangeConnections.RangeMetadata>
-      </uga:ReadRangeConnections>
-      <ui:OutputDataTable DataTable="[dtTablaConsulta]" DisplayName="Output Data Table as Text" sap:VirtualizedContainerService.HintSize="547.2,112.8" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[strTablaConsulta]" />
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="547.2,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[strTablaConsulta]" />
-      <uga:ForEachRowConnections x:TypeArguments="sd1:DataRow12" ConnectionAccountName="{x:Null}" Length="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" sap2010:Annotation.AnnotationText="" AuthScopesInvalid="False" BrowserItemFriendlyName="Paciente_Datos" BrowserItemId="https://docs.google.com/spreadsheets/d/1nAY7rcGWhaXe64i57bmTFfVYaBCqZMMfuJitzT3kIuo/edit?usp=drivesdk" ConnectionId="05f37f42-8b94-48ae-980e-6387ad977ce1" CurrentItemVariableName="CurrentRow" DisplayName="For Each Row in Spreadsheet" EmptyRowAction="Skip" HasHeaders="True" sap:VirtualizedContainerService.HintSize="547.2,543.2" sap2010:WorkflowViewState.IdRef="ForEachRowConnections`1_1" ItemSelectionMode="Browse" Range="'Consulta Dinamica'" ReadAs="Values" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False">
-        <uga:ForEachRowConnections.Body>
-          <ActivityAction x:TypeArguments="sd1:DataRow12, x:Int32">
-            <ActivityAction.Argument1>
-              <DelegateInArgument x:TypeArguments="sd1:DataRow12" Name="CurrentRow" />
-            </ActivityAction.Argument1>
-            <ActivityAction.Argument2>
-              <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentRowIndex" />
-            </ActivityAction.Argument2>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,208.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dtTablaUpdate]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="451.2,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[strNombreHoja]" WorkbookPath="[strExcelUpdateRuta]" />
+      <Assign sap:VirtualizedContainerService.HintSize="451.2,174.4" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[strFROMTabla]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[dtTablaUpdate.Rows(0)(0).ToString]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtTablaUpdate]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="451.2,415.2" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+        <ui:ForEachRow.Body>
+          <ActivityAction x:TypeArguments="sd:DataRow">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,233.6" sap2010:WorkflowViewState.IdRef="Sequence_9">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,144.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
-                <ui:MultipleAssign.AssignOperations>
-                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
-                      <ui:AssignOperation.To>
-                        <OutArgument x:TypeArguments="x:String">[strFROMTabla]</OutArgument>
-                      </ui:AssignOperation.To>
-                      <ui:AssignOperation.Value>
-                        <InArgument x:TypeArguments="x:String">[CurrentRow("Tabla Consulta").ToString()]</InArgument>
-                      </ui:AssignOperation.Value>
-                    </ui:AssignOperation>
-                  </scg:List>
-                </ui:MultipleAssign.AssignOperations>
-              </ui:MultipleAssign>
+              <Assign sap:VirtualizedContainerService.HintSize="416,169.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[strFilaAcumulada]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[String.Join(", ", CurrentRow.ItemArray)]</InArgument>
+                </Assign.Value>
+              </Assign>
             </Sequence>
           </ActivityAction>
-        </uga:ForEachRowConnections.Body>
-        <uga:ForEachRowConnections.ColumnNames>
-          <x:Array Type="x:String">
-            <x:String>Tabla Consulta</x:String>
-            <x:String>Columnas</x:String>
-            <x:String>Columna Consulta</x:String>
-            <x:String>Dato Consulta</x:String>
-          </x:Array>
-        </uga:ForEachRowConnections.ColumnNames>
-        <uga:ForEachRowConnections.FileIdBackup>
-          <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" x:Name="__ReferenceID1" StoredValue="Browse">
-            <usau:BackupSlot.BackupValues>
-              <scg:Dictionary x:TypeArguments="ugade:EDriveItemMode, scg:List(x:Object)" />
-            </usau:BackupSlot.BackupValues>
-          </usau:BackupSlot>
-        </uga:ForEachRowConnections.FileIdBackup>
-        <uga:ForEachRowConnections.Item>
-          <ugam:DriveItemArgument Backup="{x:Reference __ReferenceID1}" ConnectionDescriptor="{x:Null}" ConnectionKey="{x:Null}" Existing="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" BrowserId="https://docs.google.com/spreadsheets/d/1nAY7rcGWhaXe64i57bmTFfVYaBCqZMMfuJitzT3kIuo/edit?usp=drivesdk" FriendlyName="Paciente_Datos" FullPathHint="My Drive/Proyecto RPA/Paciente_Datos" InputMode="Browse">
-            <ugam:DriveItemArgument.ParentIdFullPathHint>
-              <InArgument x:TypeArguments="x:String">
-                <Literal x:TypeArguments="x:String" Value="" />
-              </InArgument>
-            </ugam:DriveItemArgument.ParentIdFullPathHint>
-          </ugam:DriveItemArgument>
-        </uga:ForEachRowConnections.Item>
-        <uga:ForEachRowConnections.RangeMetadata>
-          <ugsm:RangeMetadataSlim ColumnStart="1" RangeType="Range" />
-        </uga:ForEachRowConnections.RangeMetadata>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </uga:ForEachRowConnections>
-      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="547.2,311.2" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-        <ui:CommentOut.Body>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,200.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,140.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
-              <ui:MultipleAssign.AssignOperations>
-                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[strFROMTabla]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[dtTablaConsulta.Rows(0).Item("Tabla Consulta").ToString()]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                </scg:List>
-              </ui:MultipleAssign.AssignOperations>
-            </ui:MultipleAssign>
-          </Sequence>
-        </ui:CommentOut.Body>
-      </ui:CommentOut>
-      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="547.2,113.6" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Hecho" />
+        </ui:ForEachRow.Body>
+      </ui:ForEachRow>
+      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="451.2,113.6" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Hecho" />
     </Sequence>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="585.6,736.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="550.4,635.2" sap2010:WorkflowViewState.IdRef="Sequence_7">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Secuencia Consulta BBDD" sap:VirtualizedContainerService.HintSize="516.8,575.2" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence DisplayName="Secuencia Consulta BBDD" sap:VirtualizedContainerService.HintSize="516.8,575.2" sap2010:WorkflowViewState.IdRef="Sequence_10">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="ui:DatabaseConnection" Name="DBConnect" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:DatabaseConnect DisplayName="Connect to Database" sap:VirtualizedContainerService.HintSize="483.2,92" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="Microsoft.Data.SqlClient" ConnectionString="Data Source=DESKTOP-ADIJIHQ\SQLEXPRESS;Initial Catalog=RoboticLand;Integrated Security=True;Encrypt=False" DatabaseConnection="[DBConnect]" />
+      <ui:DatabaseTransaction ContinueOnError="{x:Null}" DatabaseConnection="{x:Null}" ConnectionString="Data Source=DESKTOP-ADIJIHQ\SQLEXPRESS;Initial Catalog=RoboticLand;Integrated Security=True;Encrypt=False" DisplayName="Start Transaction" sap:VirtualizedContainerService.HintSize="483.2,352" sap2010:WorkflowViewState.IdRef="DatabaseTransaction_1" ProviderName="Microsoft.Data.SqlClient" UseTransaction="True">
+        <ui:DatabaseTransaction.Body>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,210.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <Sequence.Variables>
-              <Variable x:TypeArguments="ui:DatabaseConnection" Name="DBConnect" />
+              <Variable x:TypeArguments="sd:DataTable" Name="dtDataFound" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:DatabaseConnect DisplayName="Connect to Database" sap:VirtualizedContainerService.HintSize="483.2,92" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="Microsoft.Data.SqlClient" ConnectionString="Data Source=DESKTOP-ADIJIHQ\SQLEXPRESS;Initial Catalog=RoboticLand;Integrated Security=True;Encrypt=False" DatabaseConnection="[DBConnect]" />
-            <ui:DatabaseTransaction ContinueOnError="{x:Null}" DatabaseConnection="{x:Null}" ConnectionString="Data Source=DESKTOP-ADIJIHQ\SQLEXPRESS;Initial Catalog=RoboticLand;Integrated Security=True;Encrypt=False" DisplayName="Start Transaction" sap:VirtualizedContainerService.HintSize="483.2,352" sap2010:WorkflowViewState.IdRef="DatabaseTransaction_1" ProviderName="Microsoft.Data.SqlClient" UseTransaction="True">
-              <ui:DatabaseTransaction.Body>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,210.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                  <Sequence.Variables>
-                    <Variable x:TypeArguments="sd2:DataTable" Name="dtDataFound" />
-                  </Sequence.Variables>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DataTable="[dtDataFound]" DisplayName="Run Query" ExistingDbConnection="[DBConnect]" sap:VirtualizedContainerService.HintSize="416,146.4" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="[String.Format(&quot;Select]">
-                    <ui:ExecuteQuery.Parameters>
-                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
-                    </ui:ExecuteQuery.Parameters>
-                  </ui:ExecuteQuery>
-                </Sequence>
-              </ui:DatabaseTransaction.Body>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:DatabaseTransaction>
-            <ui:DatabaseDisconnect DatabaseConnection="[DBConnect]" DisplayName="Disconnect from Database" sap:VirtualizedContainerService.HintSize="483.2,48" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
+            <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DataTable="[dtDataFound]" DisplayName="Run Query" ExistingDbConnection="[DBConnect]" sap:VirtualizedContainerService.HintSize="416,146.4" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="[String.Format(&quot;SELECT * FROM &quot;+strFROMTabla+&quot; &quot;)]">
+              <ui:ExecuteQuery.Parameters>
+                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+              </ui:ExecuteQuery.Parameters>
+            </ui:ExecuteQuery>
           </Sequence>
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
+        </ui:DatabaseTransaction.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:DatabaseTransaction>
+      <ui:DatabaseDisconnect DatabaseConnection="[DBConnect]" DisplayName="Disconnect from Database" sap:VirtualizedContainerService.HintSize="483.2,48" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
+    </Sequence>
   </Sequence>
 </Activity>
