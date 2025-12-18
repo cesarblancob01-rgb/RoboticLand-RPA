@@ -94,7 +94,7 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SeñalarBajasBBDD" sap:VirtualizedContainerService.HintSize="759.6,1147.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SeñalarBajasBBDD" sap:VirtualizedContainerService.HintSize="759.6,1168" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtPacientes" />
       <Variable x:TypeArguments="ui:DatabaseConnection" Name="ConnectDB" />
@@ -104,45 +104,43 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:DatabaseConnect DisplayName="Connect to Database" sap:VirtualizedContainerService.HintSize="553.6,92" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="Microsoft.Data.SqlClient" ConnectionString="Data Source=LAPTOP-QSHP1S0C\SQLEXPRESS;Initial Catalog=RoboticPrueba;Integrated Security=True;Encrypt=False" DatabaseConnection="[ConnectDB]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LeerExcel - Invoke Workflow File (Procesos\Altas y Bajas\LeerExcel.xaml)" sap:VirtualizedContainerService.HintSize="553.6,180.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Procesos\Altas y Bajas\LeerExcel.xaml">
+    <ui:DatabaseConnect DisplayName="Connect to Database" sap:VirtualizedContainerService.HintSize="553.6,92" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="Microsoft.Data.SqlClient" ConnectionString="Data Source=LAPTOP-QSHP1S0C\SQLEXPRESS;Initial Catalog=RoboticLand;Integrated Security=True;Encrypt=False" DatabaseConnection="[ConnectDB]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LeerExcel - Invoke Workflow File (Alberto\César\Altas y Bajas\LeerExcel.xaml)" sap:VirtualizedContainerService.HintSize="553.6,180.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Alberto\César\Altas y Bajas\LeerExcel.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtPacientes">[dtPacientes]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtPacientes]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="553.6,851.2" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtPacientes]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="553.6,872" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,678.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,699.2" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[CurrentRow(&quot;Alta/Baja&quot;).ToString.Trim.ToLower = &quot;baja&quot;]" sap:VirtualizedContainerService.HintSize="518.4,618.4" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[CurrentRow(&quot;Alta/Baja&quot;).ToString.Trim.ToLower = &quot;baja&quot;]" sap:VirtualizedContainerService.HintSize="518.4,639.2" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="516.8,399.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="516.8,411.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:DatabaseTransaction ContinueOnError="{x:Null}" DatabaseConnection="{x:Null}" ConnectionString="Data Source=LAPTOP-QSHP1S0C\SQLEXPRESS;Initial Catalog=RoboticPrueba;Integrated Security=True;Encrypt=False" DisplayName="Start Transaction" sap:VirtualizedContainerService.HintSize="483.2,339.2" sap2010:WorkflowViewState.IdRef="DatabaseTransaction_1" ProviderName="Microsoft.Data.SqlClient" UseTransaction="True">
+                  <ui:DatabaseTransaction ContinueOnError="{x:Null}" DatabaseConnection="{x:Null}" ConnectionString="Data Source=LAPTOP-QSHP1S0C\SQLEXPRESS;Initial Catalog=RoboticLand;Integrated Security=True;Encrypt=False" DisplayName="Start Transaction" sap:VirtualizedContainerService.HintSize="483.2,347.2" sap2010:WorkflowViewState.IdRef="DatabaseTransaction_1" ProviderName="Microsoft.Data.SqlClient" UseTransaction="True">
                     <ui:DatabaseTransaction.Body>
-                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,206.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,210.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Run Command" ExistingDbConnection="[ConnectDB]" sap:VirtualizedContainerService.HintSize="416,146.4" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_1" Sql="UPDATE Pacientes&#xD;&#xA;SET [Alta/Baja] = 'Baja'&#xD;&#xA;WHERE DNI = @dni">
+                        <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Run Command" ExistingDbConnection="[ConnectDB]" sap:VirtualizedContainerService.HintSize="416,146.4" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_1" Sql="UPDATE Pacientes&#xA;SET [Alta/Baja] = 'Baja'&#xA;WHERE DNI = @dni">
                           <ui:ExecuteNonQuery.Parameters>
-                            <InArgument x:TypeArguments="x:String" x:Key="@dni">
-                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="CurrentRow(&quot;DNI&quot;).ToString.Trim" />
-                            </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="@dni">[CurrentRow("DNI").ToString.Trim]</InArgument>
                           </ui:ExecuteNonQuery.Parameters>
                         </ui:ExecuteNonQuery>
                       </Sequence>
@@ -151,7 +149,7 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="516.8,89.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="516.8,94.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
